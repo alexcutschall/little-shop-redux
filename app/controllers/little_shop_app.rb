@@ -8,10 +8,11 @@ class LittleShopApp < Sinatra::Base
 
   get '/merchants/new' do
     erb :'merchants/new'
+  end
 
   get '/invoices' do
     @invoices = Invoice.all
-    erb :"invoices/index"
+    erb :'invoices/index'
 
   end
 end
