@@ -8,10 +8,9 @@ RSpec.describe Merchant do
     end
 
     it 'is invalid to not have a name' do
-      merchant = Merchant.new(merchant_id: 12334105)
+      merchant = Merchant.new(id: 12334105)
 
       expect(merchant).to_not be_valid
     end
   end
 end
-
