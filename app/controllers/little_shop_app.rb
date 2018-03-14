@@ -8,5 +8,4 @@ class LittleShopApp < Sinatra::Base
   get '/merchants/new' do
     erb :'merchants/new'
   end
-
 end
