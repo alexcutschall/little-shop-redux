@@ -1,0 +1,7 @@
+<!-- views/invoices/index.erb -->
+    <% @invoices.each do |invoice| %>
+    <ul>
+      <li><%= invoice.merchant_id %></li>
+      <li><%= invoice.status %></li>
+    </ul>
+    <% end %>
