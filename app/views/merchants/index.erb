@@ -1,13 +1,36 @@
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="../../../main.css">
 </head>
   <body>
-    <h1 class="nav">This is the nav</h1>
+  <div class="row nav">
+    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+      <h1>Little Shop</h1>
+    </div>
 
-      <h1 style="text-align: center;">Merchants</h1>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+      Merchants
+    </div>
 
-    <h2><a href ="/merchants/new">Create a New Merchant</a></h2>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+      Items
+    </div>
+
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+      Invoices
+    </div>
+  </div>
+  <div class="header">
+      <h1 class ="header-title">Merchants</h1>
+      <button type="button" class="btn btn-secondary button-shadow">Create a New Merchant</button>
+  </div>
+
+  <div class="merchant-display">
     <% @merchants.each do |merchant| %>
       <h3><a href="/merchants/<%= merchant.merchant_id %>"><%= merchant.name %></a></h3>
+      <button type="button" class="btn btn-warning button">Edit</button>
+      <button type="submit" class = "btn btn-warning button">Delete</button>
     <% end %>
+  </div>
+
 </body>
