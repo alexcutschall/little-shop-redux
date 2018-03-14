@@ -17,4 +17,11 @@ RSpec.describe Item do
       expect(item).to_not be_valid
     end
   end
+  describe 'Page navigation', :type => :feature do
+    it 'shows all items' do
+      visit '/items'
+
+      expect(page).to have_content('Items')
+    end
+  end
 end
