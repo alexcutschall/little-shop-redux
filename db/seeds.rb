@@ -1,6 +1,6 @@
 require 'csv'
+require './app/models/invoice'
 
-invoices = CSV.foreach('../../data/invoices.csv', headers: true, header_converters: :symbol) do |info|
-  invoice = Invoice.new info, self
-  @items.push item
+CSV.foreach('./data/invoices.csv', headers: true, header_converters: :symbol) do |info|
+  Invoice.create(info.to_h)
 end
