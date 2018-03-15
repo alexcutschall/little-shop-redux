@@ -10,13 +10,4 @@ RSpec.describe Invoice do
       expect(invoice).to_not be_valid
     end
   end
-
-  # describe 'Clicking on Invoice Links' :type => :feature do
-  #   it 'should click on invoice id link' do
-  #     invoice = Invoice.new(merchant_id: 1, status: 'pending')
-  #
-  #     click_link
-  #     expect(page).to have_content('')
-  #   end
-  # end
 end

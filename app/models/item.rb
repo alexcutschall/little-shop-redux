@@ -1,3 +1,4 @@
+# Defines Item class
 class Item < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true
