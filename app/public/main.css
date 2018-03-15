@@ -52,6 +52,7 @@ a img {
   border: none;
 }
 /* END RESET*/
+
 .nav {
   margin: 5px;
   padding: 5px;
@@ -70,11 +71,11 @@ a img {
   background-color: #f0f0f5;
   margin: 5px 5px 0 5px;
   border: solid;
-  padding: 20px;
+  padding: 10px;
 }
 
-/*
-.merchant-display {
+.invoice-display {
   border: solid;
-  margin-top: 0 5px 5px 5px;
-} */
+  margin: 5px 5px 5px 5px;
+  padding: 5px 5px 5px 5px;
+}
