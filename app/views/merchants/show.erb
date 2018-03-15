@@ -20,19 +20,6 @@
         <a href='/invoices'>Invoices</a>
       </div>
     </div>
-
-  <div class="header">
-      <h1 class ="header-title">Merchants</h1>
-      <a href='/merchants/new' class="btn btn-secondary button-shadow" role="button">Create a New Merchant</a>
-      <a href='/merchants-dashboard'></a>
-  </div>
-
-  <% @merchants.each do |merchant| %>
-    <h3><a href='/merchants/<%= merchant.id %>'><%= merchant.name %></a>
-      <!-- <a href= '/merchants/<%= merchant.id %>/edit'>Edit</a> -->
-      <form action='merchants/<%= merchant.id %>' method= "POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="delete" />
-  <% end %>
-
+<h1><%= @merchant.id %></h1>
+<p><%= @merchant.name %></h1>
 </body>

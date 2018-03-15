@@ -5,16 +5,19 @@ RSpec.describe Item do
 
       expect(item).to be_invalid
     end
+
     it 'is invalid to not have a description' do
       item = Item.new(title: ',jh', price: 12, image: 'jlhkjh')
 
       expect(item).to be_invalid
     end
+
     it 'is invalid to not have a price' do
       item = Item.new(title: 'khkjh', description: 'jhjg', image: 'mmnb')
 
       expect(item).to be_invalid
     end
+
     it 'is invalid to not have an image' do
       item = Item.new(title: 'jgf', description: 'g', price: 12)
 
