@@ -1,6 +1,37 @@
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../../../main.css">
+</head>
+  <body>
+  <div class="row nav">
+    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+      <h1>Little Shop</h1>
+    </div>
 
-<h1>Merchants</h1>
-<h2><a href ="/merchants/new">Create a New Merchant</a></h2>
-<% @merchants.each do |merchant| %>
-  <h3><a href="/merchants/<%= merchant.merchant_id %>"><%= merchant.name %></a></h3>
-<% end %>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+      Merchants
+    </div>
+
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+      Items
+    </div>
+
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+      Invoices
+    </div>
+  </div>
+  <div class="header">
+      <h1 class ="header-title">Merchants</h1>
+      <a href='/merchants/new' class="btn btn-secondary button-shadow" role="button">Create a New Merchant</a>
+      <a href='/merchants-dashboard'
+  </div>
+
+  <div class="merchant-display">
+    <% @merchants.each do |merchant| %>
+      <h3><a href="/merchants/<%= merchant.merchant_id %>"><%= merchant.name %></a></h3>
+      <button type="button" class="btn btn-warning button">Edit</button>
+      <button type="submit" class = "btn btn-warning button">Delete</button>
+    <% end %>
+  </div>
+
+</body>

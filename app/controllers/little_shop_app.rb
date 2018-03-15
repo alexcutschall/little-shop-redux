@@ -1,4 +1,6 @@
 class LittleShopApp < Sinatra::Base
+  set :method_override, true
+
   get '/' do
     erb :dashboard
   end
@@ -16,7 +18,6 @@ class LittleShopApp < Sinatra::Base
     @invoices = Invoice.all
     erb :'invoices/index'
   end
-
 
   get '/invoices/:id' do
     @invoices = Invoice.find(params[:id])
