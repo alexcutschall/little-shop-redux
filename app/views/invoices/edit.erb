@@ -1,4 +1,4 @@
-<form action="/tasks/<%= @invoice.id %>" method="post">
+<form action="/tasks/<%= @invoice.merchant_id %>" method="post">
   <p>Edit</p>
   <input type="hidden" name="_method" value="PUT" />
   <input type='text' name='invoice[merchant_id]' value="<%= @invoice.merchant_id %>"/><br/>
