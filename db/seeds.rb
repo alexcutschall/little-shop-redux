@@ -35,3 +35,7 @@ CSV.foreach(
     price: info[:unit_price]
   )
 end
+
+CSV.foreach('./data/merchants.csv', headers: true, header_converters: :symbol) do |info|
+  Merchant.create(info.to_h)
+end
