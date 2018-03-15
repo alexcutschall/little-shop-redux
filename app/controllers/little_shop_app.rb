@@ -31,7 +31,7 @@ class LittleShopApp < Sinatra::Base
   end
 
   get '/invoices/:id' do
-    @invoices = Invoice.find(params[:id])
+    @invoice = Invoice.find_by(merchant_id: params[:id])
     erb :'invoices/show'
   end
 
@@ -44,5 +44,4 @@ class LittleShopApp < Sinatra::Base
     Merchant.destroy(id.to_i)
     redirect '/merchants'
   end
-  
 end

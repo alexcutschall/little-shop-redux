@@ -79,3 +79,8 @@ a img {
   margin: 5px 5px 5px 5px;
   padding: 5px 5px 5px 5px;
 }
+
+.invoice-display li {
+  padding: 2px 5px;
+  display: inline-block;
+}

@@ -36,11 +36,14 @@
       <button type="button" class="btn btn-secondary button-shadow">Create Invoice</button>
     </div>
 
-    <div class="invoice-display"
+    <div class="invoice-display">
       <% @invoices.each do |invoice| %>
-        <h3><a href="/invoices/<%= invoice.merchant_id %>"><%= invoice.merchant_id %></a></h3>
+        <li> <%= invoice.id %></li>
+        <li><a href="/invoices/<%= invoice.id %>"><%= invoice.id %></a></li>
+        <li> <%= invoice.status %> </li>
         <button type="button" class="btn btn-warning button">Edit</button>
         <button type="submit" class = "btn btn-warning button">Delete</button>
+        <br/>
       <% end %>
     </div>
 
