@@ -29,7 +29,7 @@
 
     <% @merchants.each do |merchant| %>
     <div class="flex-container">
-      <h3 class="merchant-header merchant-display"><a href='/merchants/<%= merchant.id %>'><%= merchant.name %></a>
+      <h3 class="merchant-header merchant-display"><a href='merchants/<%= merchant.id %>'><%= merchant.name %></a>
         <form action='merchants/<%=merchant.id %>/edit' method= "GET">
           <h1><input type="hidden" name="_method" value="EDIT"></h1>
           <input type="submit" value="edit" />

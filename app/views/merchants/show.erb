@@ -23,5 +23,14 @@
   <div class="header">
       <h1 class="introduction">Merchant ID: </h1><h3 class ="header-title"><%= @merchant.id %></h1>
       <h1 class="introduction">Merchant Name: </h1><h3 class ="header-title"><%= @merchant.name %></h1>
+        <form action='<%=@merchant.id %>/edit' method= "GET">
+          <h1><input type="hidden" name="_method" value="EDIT"></h1>
+          <input type="submit" value="edit" />
+        </form>
+
+        <form action='<%= @merchant.id %>' method= "POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="delete" />
+        </form>
   </div>
 </body>
