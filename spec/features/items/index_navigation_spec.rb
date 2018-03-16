@@ -8,6 +8,6 @@ RSpec.describe 'Page navigation', type: :feature do
     visit '/items'
     click_button 'Create a new item'
 
-    expect(page).to have_xpath('//items/new')
+    expect(page).to have_xpath('/items/new')
   end
 end
