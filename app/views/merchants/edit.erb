@@ -1,6 +1,29 @@
-<form action="/merchants/<%= @merchant.id %>" method="post">
-  <h1>Edit</h1>
-  <input type="hidden" name="_method" value="PUT">
-  <input type="text" name="merchant[name]" value= "<%= @merchant.name %>"/><br/>
-  <input type= 'submit'/>
-</form>
+<head>
+  <link rel="stylesheet" type="text/css" href="../../../reset.css">
+  <link rel="stylesheet" type="text/css" href="../../../main.css">
+</head>
+<body>
+    <div class="nav">
+      <div class="merchant-header">
+        <h1>Little Shop</h1>
+      </div>
+
+      <div class="header-links">
+        <a href='/merchants'>Merchants</a>
+      </div>
+
+      <div class="header-links">
+        <a href='/items'>Items</a>
+      </div>
+
+      <div class="header-links">
+        <a href='/invoices'>Invoices</a>
+      </div>
+    </div>
+  <form action="/merchants/<%= @merchant.id %>" method="post">
+    <h1>Edit</h1>
+    <input type="hidden" name="_method" value="PUT">
+    <input type="text" name="merchant[name]" value= "<%= @merchant.name %>"/><br/>
+    <input type= 'submit'/>
+  </form>
+</body>

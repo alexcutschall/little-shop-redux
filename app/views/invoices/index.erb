@@ -38,12 +38,11 @@
 
     <div class="invoice-display"
       <% @invoices.each do |invoice| %>
-        <h3><a href="/invoices/<%= invoice.id %>"><%= invoice.id %></a></h3>
+        <h3><a href="/invoices/<%= invoice.merchant_id %>"><%= invoice.merchant_id %></a></h3>
         <button type="button" class="btn btn-warning button">Edit</button>
         <button type="submit" class = "btn btn-warning button">Delete</button>
       <% end %>
     </div>
-
 
 </body>
 </html>
