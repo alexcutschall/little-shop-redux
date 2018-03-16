@@ -49,5 +49,13 @@ describe 'User Navigates Invoices Page' do
       page.has_button?('Edit')
       page.has_button?('Delete')
     end
+
+    it 'should take you to an edit page when you click edit button' do
+
+    end
+
+    it 'should take you to a page to confirm that you want to delete the item' do
+
+    end
   end
 end
