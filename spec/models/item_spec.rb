@@ -1,31 +1,27 @@
 RSpec.describe Item do
   describe 'Validate fields' do
     it 'is invalid to not have a title' do
-      item = Item.new(description: '', price: 12, image: '')
-      expect(item).to_not be_valid
+      item = Item.new(description: 'jhg', price: 12, image: 'jhkjh')
+
+      expect(item).to be_invalid
     end
 
     it 'is invalid to not have a description' do
-      item = Item.new(title: '', price: 12, image: '')
-      expect(item).to_not be_valid
+      item = Item.new(title: ',jh', price: 12, image: 'jlhkjh')
+
+      expect(item).to be_invalid
     end
 
     it 'is invalid to not have a price' do
-      item = Item.new(title: '', description: '', image: '')
-      expect(item).to_not be_valid
+      item = Item.new(title: 'khkjh', description: 'jhjg', image: 'mmnb')
+
+      expect(item).to be_invalid
     end
 
     it 'is invalid to not have an image' do
-      item = Item.new(title: '', description: '', price: 12)
-      expect(item).to_not be_valid
-    end
-  end
+      item = Item.new(title: 'jgf', description: 'g', price: 12)
 
-  describe 'Page navigation', :type => :feature do
-    it 'shows all items' do
-      visit '/items'
-
-      expect(page).to have_content('Items')
+      expect(item).to be_invalid
     end
   end
 end
