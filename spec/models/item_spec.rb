@@ -1,5 +1,5 @@
 RSpec.describe Item do
-  describe 'Validate fields' do
+  context 'Validate fields' do
     it 'is invalid to not have a title' do
       item = Item.new(description: 'jhg', price: 12, image: 'jhkjh')
 
