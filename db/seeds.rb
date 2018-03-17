@@ -31,10 +31,12 @@ CSV.foreach(
   headers: true,
   header_converters: :symbol
 ) do |info|
-  Item.create(
+  Item.create!(
     title: info[:name],
     description: info[:description],
-    price: info[:unit_price]
+    price: info[:unit_price],
+    image: 'https://cakeconnection.com/wp-content/uploads/2017/11/CottonCandy.jpg',
+    merchant_id: info[:merchant_id]
   )
 end
 
