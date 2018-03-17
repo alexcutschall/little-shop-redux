@@ -1,8 +1,7 @@
 <!-- views/items/index.erb -->
 <h1>Items</h1>
-<form action='/items/new'>
-   <input type='submit' value='Create a new item'/>
-</form>
+<a href='/items/dashboard'>Dashboard</a>
+<a href='/items/new'>Create A New Item</a>
     <% @items.each do |item| %>
     <ul>
       <li><%= item.title %></li>

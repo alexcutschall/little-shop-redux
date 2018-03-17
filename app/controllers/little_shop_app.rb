@@ -71,6 +71,18 @@ set :method_override, true
     erb :'items/index'
   end
 
+  get '/items/new' do
+    erb :'items/new'
+  end
+
+  get '/items/:id' do
+    erb :'items/show'
+  end
+
+  get '/items/:id/edit' do
+    erb :'items/edit'
+  end
+
   delete '/merchants/:id' do |id|
     Merchant.destroy(id.to_i)
     redirect '/merchants'
