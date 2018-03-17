@@ -1,5 +1,54 @@
-<a href="/invoices">Dashboard</a>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    >
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
 
-<h1><%= @invoice.merchant_id %></h1>
+    <meta charset="utf-8">
+    <title>Invoices</title>
+  </head>
+  <body>
+    <div class="row nav">
+      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+        <h1>Little Shop</h1>
+      </div>
 
-<p><%= @invoice.status %></p>
+      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+        Merchants
+      </div>
+
+      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+        Items
+      </div>
+
+      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+        Invoices
+      </div>
+    </div>
+
+    <div class="header">
+      <h1 class ="header-title">Invoices</h1>
+      <button type="button" class="btn btn-secondary button-shadow">Create Invoice</button>
+    </div>
+
+    <a href="/invoices">Dashboard</a>
+
+    <div class="invoice-display">
+      <% invoice = Invoice.find(params[:id]) %>
+      <li> Invoice ID: <%= invoice[:id] %> </li>
+      <li> Merchant ID: <%= invoice[:merchant_id] %> </li>
+      <li> Status: <%= invoice[:status] %> </li>
+      <a href="/invoices/<%= invoice.id %>/edit">Edit</a>
+        <form action="/invoices/<%= invoice.id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="delete"/>
+        </form>
+    </div>
+
+</body>
+</html>
