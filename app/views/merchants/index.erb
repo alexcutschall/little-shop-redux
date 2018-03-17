@@ -1,38 +1,25 @@
 <head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../../../reset.css">
   <link rel="stylesheet" type="text/css" href="../../../main.css">
 </head>
-  <body>
-    <div class="row nav">
-      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-        <h1>Little Shop</h1>
-      </div>
+<%= erb :navigation %>
+<div class="header">
+    <h1 class ="header-title">Merchants</h1>
+    <a href="/merchants/new" class="button">Create a New Merchant!</a>
+    <a href='/merchants-dashboard'></a>
+</div>
+    <% @merchants.each do |merchant| %>
+    <div class="flex-container">
+      <h3 class="merchant-header merchant-display"><a href='merchants/<%= merchant.id %>'><%= merchant.name %></a>
+        <form action='merchants/<%=merchant.id %>/edit' method= "GET">
+          <h1><input type="hidden" name="_method" value="EDIT"></h1>
+          <input type="submit" value="edit" />
+        </form>
 
-      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-        <a href='/merchants'>Merchants</a>
-      </div>
-
-      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-        <a href='/items'>Items</a>
-      </div>
-
-      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-        <a href='/invoices'>Invoices</a>
-      </div>
+        <form action='merchants/<%= merchant.id %>' method= "POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="delete" />
+        </form>
     </div>
-
-  <div class="header">
-      <h1 class ="header-title">Merchants</h1>
-      <a href='/merchants/new' class="btn btn-secondary button-shadow" role="button">Create a New Merchant</a>
-      <a href='/merchants-dashboard'></a>
-  </div>
-
-  <% @merchants.each do |merchant| %>
-    <h3><a href='/merchants/<%= merchant.id %>'><%= merchant.name %></a>
-      <!-- <a href= '/merchants/<%= merchant.id %>/edit'>Edit</a> -->
-      <form action='merchants/<%= merchant.id %>' method= "POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="delete" />
-  <% end %>
-
+    <% end %>
 </body>

@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    >
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
 
+  <head>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
     <meta charset="utf-8">
     <title>Invoices</title>
   </head>
+  
   <body>
     <div class="row nav">
       <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
@@ -36,11 +32,20 @@
       <button type="button" class="btn btn-secondary button-shadow">Create Invoice</button>
     </div>
 
-    <div class="invoice-display"
+    <div class="invoice-display">
+      <li class="invoice-id">Invoice ID</li>
+      <li class="status-id">Status</li>
+      <br/>
+
       <% @invoices.each do |invoice| %>
-        <h3><a href="/invoices/<%= invoice.merchant_id %>"><%= invoice.merchant_id %></a></h3>
-        <button type="button" class="btn btn-warning button">Edit</button>
-        <button type="submit" class = "btn btn-warning button">Delete</button>
+        <li class="invoice-id"><a href="/invoices/<%= invoice.id %>"><%= invoice.id %></a></li>
+        <li class="status-id"> <%= invoice.status %> </li>
+        <a href="/invoices/<%= invoice.id %>/edit">Edit</a>
+          <form action="/invoices/<%= invoice.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="delete"/>
+          </form>
+        <br/>
       <% end %>
     </div>
 
