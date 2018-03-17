@@ -43,8 +43,11 @@
       <li> Invoice ID: <%= invoice[:id] %> </li>
       <li> Merchant ID: <%= invoice[:merchant_id] %> </li>
       <li> Status: <%= invoice[:status] %> </li>
-      <button type="button" class="btn btn-warning button">Edit</button>
-      <button type="submit" class="btn btn-warning button">Delete</button>
+      <a href="/invoices/<%= invoice.id %>/edit">Edit</a>
+        <form action="/invoices/<%= invoice.id %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="delete"/>
+        </form>
     </div>
 
 </body>

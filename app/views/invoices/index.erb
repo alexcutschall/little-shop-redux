@@ -37,12 +37,18 @@
     </div>
 
     <div class="invoice-display">
+      <li class="invoice-id">Invoice ID</li>
+      <li class="status-id">Status</li>
+      <br/>
+
       <% @invoices.each do |invoice| %>
-        <li> <%= invoice.id %></li>
-        <li><a href="/invoices/<%= invoice.id %>"><%= invoice.id %></a></li>
-        <li> <%= invoice.status %> </li>
-        <button type="button" class="btn btn-warning button">Edit</button>
-        <button type="submit" class = "btn btn-warning button">Delete</button>
+        <li class="invoice-id"><a href="/invoices/<%= invoice.id %>"><%= invoice.id %></a></li>
+        <li class="status-id"> <%= invoice.status %> </li>
+        <a href="/invoices/<%= invoice.id %>/edit">Edit</a>
+          <form action="/invoices/<%= invoice.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="delete"/>
+          </form>
         <br/>
       <% end %>
     </div>
