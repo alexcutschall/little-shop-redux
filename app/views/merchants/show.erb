@@ -3,23 +3,7 @@
   <link rel="stylesheet" type="text/css" href="../../../main.css">
 </head>
 <body>
-  <div class="nav">
-    <div class="merchant-header">
-      <h1>Little Shop</h1>
-    </div>
-
-    <div class="header-links">
-      <a href='/merchants'>Merchants</a>
-    </div>
-
-    <div class="header-links">
-      <a href='/items'>Items</a>
-    </div>
-
-    <div class="header-links">
-      <a href='/invoices'>Invoices</a>
-    </div>
-  </div>
+  <%= erb :navigation %>
   <div class="header">
       <h1 class="introduction">Merchant ID: </h1><h3 class ="header-title"><%= @merchant.id %></h1>
       <h1 class="introduction">Merchant Name: </h1><h3 class ="header-title"><%= @merchant.name %></h1>
@@ -33,4 +17,8 @@
           <input type="submit" value="delete" />
         </form>
   </div>
+Merchant Invoices:
+  <% @merchant.invoices.each do |item| %>
+    <%= invoices.status %>
+  <% end %>
 </body>

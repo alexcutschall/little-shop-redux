@@ -4,5 +4,5 @@ class Item < ActiveRecord::Base
   validates :description, presence: true
   validates :price, presence: true
   validates :image, presence: true
-  belongs_to :merchant
+  has_many :invoice_items
 end
