@@ -1,6 +1,7 @@
 <head>
   <link rel="stylesheet" type="text/css" href="../../../reset.css">
   <link rel="stylesheet" type="text/css" href="../../../main.css">
+  <title>Merchant Page</title>
 </head>
 <body>
   <%= erb :navigation %>
@@ -9,12 +10,12 @@
       <h1 class="introduction">Merchant Name: </h1><h3 class ="header-title"><%= @merchant.name %></h1>
         <form action='<%=@merchant.id %>/edit' method= "GET">
           <h1><input type="hidden" name="_method" value="EDIT"></h1>
-          <input type="submit" value="edit" />
+          <input type="submit" value="edit" class="edit-button"/>
         </form>
 
         <form action='<%= @merchant.id %>' method= "POST">
           <input type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="delete" />
+          <input type="submit" value="delete" class="delete-button"/>
         </form>
   </div>
 Merchant Invoices:
