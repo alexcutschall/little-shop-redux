@@ -59,4 +59,3 @@ describe 'User Navigates Invoices Page' do
     end
   end
 end
-

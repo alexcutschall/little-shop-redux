@@ -76,6 +76,7 @@ set :method_override, true
   end
 
   get '/items/:id' do
+    @item = Item.find(params[:id])
     erb :'items/show'
   end
 
