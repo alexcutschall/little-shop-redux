@@ -2,31 +2,12 @@
   <link rel="stylesheet" type="text/css" href="../../../reset.css">
   <link rel="stylesheet" type="text/css" href="../../../main.css">
 </head>
-  <body>
-    <div class="nav">
-      <div class="merchant-header">
-        <h1>Little Shop</h1>
-      </div>
-
-      <div class="header-links">
-        <a href='/merchants'>Merchants</a>
-      </div>
-
-      <div class="header-links">
-        <a href='/items'>Items</a>
-      </div>
-
-      <div class="header-links">
-        <a href='/invoices'>Invoices</a>
-      </div>
-    </div>
-
-  <div class="header">
-      <h1 class ="header-title">Merchants</h1>
-      <a href="/merchants/new" class="button">Create a New Merchant!</a>
-      <a href='/merchants-dashboard'></a>
-  </div>
-
+<%= erb :navigation %>
+<div class="header">
+    <h1 class ="header-title">Merchants</h1>
+    <a href="/merchants/new" class="button">Create a New Merchant!</a>
+    <a href='/merchants-dashboard'></a>
+</div>
     <% @merchants.each do |merchant| %>
     <div class="flex-container">
       <h3 class="merchant-header merchant-display"><a href='merchants/<%= merchant.id %>'><%= merchant.name %></a>

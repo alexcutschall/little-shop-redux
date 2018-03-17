@@ -7,7 +7,7 @@ a.button {
   color: white;
   border: none;
   border-radius: 12px;
-  background-color: blue;
+  background-color: #4286f4;
   display: inline-block;
   padding: 15px 32px;
   text-align: center;
@@ -18,22 +18,7 @@ a.button {
 }
 
 a:hover {
-    color: hotpink;
-    text-decoration-line: underline;
-}
-
-a:link {
-    color: purple;
-    text-decoration: none;
-}
-
-.merchant-header {
-  float: left;
-}
-
-.header-links {
-  float: right;
-  padding: 0px 10px;
+    background-color: hotpink;
 }
 
 .merchant-display {
@@ -49,12 +34,6 @@ a:link {
 .flex-container {
   display: flex;
   flex-direction: row;
-}
-
-.nav {
-  margin: 5px;
-  padding: 5px;
-  border: solid;
 }
 
 .introduction {
