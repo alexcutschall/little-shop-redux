@@ -3,7 +3,7 @@
 <a href='/items/dashboard'>Dashboard</a>
 <a href='/items/new'>Create A New Item</a>
     <% @items.each do |item| %>
-      <a href='/items/show'><%= item.title %></a>
+      <a href='/items/<%= item.id %>'><%= item.title %></a>
       <%= item.description %>
       <%= item.price %>
       <%= item.image %>
