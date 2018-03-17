@@ -37,10 +37,6 @@ CSV.foreach(
   )
 end
 
-CSV.foreach('./data/merchants.csv', headers: true, header_converters: :symbol) do |info|
-  Merchant.create(info.to_h)
-end
-
 CSV.foreach(
   './data/invoice_items.csv',
   headers: true,
