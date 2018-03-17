@@ -21,6 +21,7 @@ CSV.foreach(
   header_converters: :symbol
 ) do |info|
   Merchant.create(
+    id: info[:id],
     name: info[:name]
   )
 end
