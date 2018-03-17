@@ -57,3 +57,22 @@ a:hover {
   margin: 5px;
   padding: 5px;
 }
+
+.invoice-display li {
+  width: 75%;
+  margin: auto;
+  padding: 2px 5px;
+  display: inline-block;
+}
+
+li.invoice-id {
+  width: 500px;
+}
+
+li.status {
+  width: 100px;
+}
+
+li.buttons {
+  float: right;
+}
