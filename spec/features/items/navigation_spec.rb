@@ -17,6 +17,12 @@ RSpec.describe Item, type: :feature do
 
         expect(page).to have_link('Dashboard')
       end
+      it 'has an item title link' do
+        item = Item.new(title: 'x', description: 'x', price: 12, image: 'x')
+        visit '/items'
+
+        expect(page).to have_link('x')
+      end
     end
   end
 end
