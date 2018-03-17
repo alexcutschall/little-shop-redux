@@ -18,13 +18,13 @@ RSpec.describe Item, type: :feature do
         expect(page).to have_link('Dashboard')
       end
       it 'has an item title link' do
-        item = Item.create(title: 'x', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'x', description: 'x', price: 12, image: 'x')
         visit '/items'
 
         expect(page).to have_link('x')
       end
       it 'takes you from index to show' do
-        item = Item.create(title: 'x', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'x', description: 'x', price: 12, image: 'x')
         visit '/items'
         click_link 'x'
 
@@ -33,26 +33,26 @@ RSpec.describe Item, type: :feature do
     end
     context 'Show page' do
       it 'has an edit link' do
-        item = Item.create(title: 'x', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'x', description: 'x', price: 12, image: 'x')
         visit 'items/1'
 
         expect(page).to have_link('Edit')
       end
       it 'takes you from show to edit' do
-        item = Item.create(title: 'x', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'x', description: 'x', price: 12, image: 'x')
         visit 'items/1'
         click_link 'Edit'
 
         expect(current_path).to eql('/items/1/edit')
       end
       it 'has a delete link' do
-        item = Item.create(title: 'x', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'x', description: 'x', price: 12, image: 'x')
         visit 'items/1'
 
         expect(page).to have_link('Delete')
       end
       it 'takes you from show to index after deleting' do
-        item = Item.create(title: 'x', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'x', description: 'x', price: 12, image: 'x')
         visit 'items/1'
         click_link 'Delete'
 
