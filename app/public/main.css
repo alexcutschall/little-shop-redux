@@ -1,6 +1,20 @@
-input {
-  background-color: red;
+.home-hero {
+  background-image: url(/images/cotton_candy.jpeg);
+}
+
+.submit-button {
+  background-color: yellow;
   border-radius: 12px;
+}
+
+.edit-button {
+  background-color: yellow;
+  float: right;
+}
+
+.delete-button {
+  background-color: red;
+  float: right;
 }
 
 a.button {
@@ -29,6 +43,10 @@ a:hover {
   border: solid;
   padding: auto;
   width: 50%;
+}
+
+.merchant-header {
+  float: left;
 }
 
 .flex-container {

@@ -1,6 +1,7 @@
 <head>
   <link rel="stylesheet" type="text/css" href="../../../reset.css">
   <link rel="stylesheet" type="text/css" href="../../../main.css">
+  <title>Create a Merchant</title>
 </head>
 <body>
   <%= erb :navigation %>
@@ -8,9 +9,8 @@
       <h1 class ="header-title">Create a New Merchant!</h1>
 
     <form action="/merchants" method="post">
-      <input type="text" name='merchant[id]' value="ID">
       <input type="text" name='merchant[name]' value="Merchant Name">
-      <input type="submit"/>
+      <input class="submit-button" type="submit"/>
     </form>
   </div>
 </body>

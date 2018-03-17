@@ -1,6 +1,7 @@
 <head>
   <link rel="stylesheet" type="text/css" href="../../../reset.css">
   <link rel="stylesheet" type="text/css" href="../../../main.css">
+  <title>Merchant Index</title>
 </head>
 <%= erb :navigation %>
 <div class="header">
@@ -13,12 +14,12 @@
       <h3 class="merchant-header merchant-display"><a href='merchants/<%= merchant.id %>'><%= merchant.name %></a>
         <form action='merchants/<%=merchant.id %>/edit' method= "GET">
           <h1><input type="hidden" name="_method" value="EDIT"></h1>
-          <input type="submit" value="edit" />
+          <input type="submit" value="edit" class="edit-button"/>
         </form>
 
         <form action='merchants/<%= merchant.id %>' method= "POST">
           <input type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="delete" />
+          <input type="submit" value="delete" class="delete-button"/>
         </form>
     </div>
     <% end %>
