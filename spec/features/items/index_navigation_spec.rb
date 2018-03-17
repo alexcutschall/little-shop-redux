@@ -12,7 +12,7 @@ RSpec.describe Item, type: :feature do
     end
     it 'takes you from index to new' do
       visit '/items'
-      click_button 'Create a new item'
+      click_link 'Create A New Item'
 
       expect(current_path).to eql('/items/new')
     end
