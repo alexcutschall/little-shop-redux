@@ -28,7 +28,7 @@ RSpec.describe Item, type: :feature do
         visit '/items'
         click_link 'x'
 
-        expect(current_path).to eql('/items/show')
+        expect(current_path).to eql('/items/1')
       end
     end
     context 'Show page' do
