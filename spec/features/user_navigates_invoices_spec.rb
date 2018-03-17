@@ -1,15 +1,6 @@
 describe 'User Navigates Invoices Page' do
   context 'user visits invoice index page' do
     it 'should contain invoice info' do
-<<<<<<< HEAD
-      Invoice.new(merchant_id: 1, customer_id: 3, status: 'pending')
-
-      click_link '1'
-      expect(page).to have_content('Pending')
-    end
-  end
-end
-=======
       visit '/invoices'
 
       expect(page).to have_content('Invoices')
@@ -68,5 +59,3 @@ end
     end
   end
 end
-
->>>>>>> 2d835362fc6bf0e76034cd710dc7e5cfc634cecc
