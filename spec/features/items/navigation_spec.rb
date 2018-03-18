@@ -59,5 +59,19 @@ RSpec.describe Item, type: :feature do
         expect(current_path).to eql('/items')
       end
     end
+    context 'New page' do
+      it 'has a cancel link' do
+        visit 'items/new'
+        click_link 'Cancel'
+
+        expect(current_path).to eql('/items')
+      end
+      it 'has a create item link' do
+        visit 'items/new'
+        click_link 'Create Item'
+
+        expect(current_path).to eql('/items')
+      end
+    end
   end
 end
