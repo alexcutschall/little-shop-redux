@@ -47,6 +47,33 @@ RSpec.describe Item, type: :feature do
 
         expect(page).to have_content('Merch name')
       end
+      context 'New page' do
+        it 'says new on top of page' do
+          visit '/items/new'
+
+          expect(page).to have_content('Create New Item')
+        end
+        it 'has a form for the new title' do
+          visit '/items/new'
+
+          expect(page).to have_selector("input[value='Title']")
+        end
+        it 'has a form for the new description' do
+          visit '/items/new'
+
+          expect(page).to have_selector("input[value='Description']")
+        end
+        it 'has a form for the new price' do
+          visit '/items/new'
+
+          expect(page).to have_selector("input[value='0.00']")
+        end
+        it 'has a form for the new image URL' do
+          visit '/items/new'
+
+          expect(page).to have_selector("input[value='www.example.com/image.jpg']")
+        end
+      end
     end
   end
 end

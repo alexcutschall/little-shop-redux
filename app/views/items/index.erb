@@ -1,10 +1,24 @@
-<!-- views/items/index.erb -->
-<h1>Items</h1>
-<a href='/items/dashboard'>Dashboard</a>
-<a href='/items/new'>Create A New Item</a>
-    <% @items.each do |item| %>
-      <a href='/items/<%= item.id %>'><%= item.title %></a>
-      <%= item.description %>
-      <%= item.price %>
-      <%= item.image %>
-    <% end %>
+<!DOCTYPE>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <meta charset="utf-8">
+    <title>Items</title>
+  </head>
+
+  <body>
+
+    <h1>Items</h1>
+    <a href='/items/dashboard'>Dashboard</a>
+    <a href='/items/new'>Create A New Item</a>
+        <% @items.each do |item| %>
+          <a href='/items/<%= item.id %>'><%= item.title %></a>
+          <%= item.description %>
+          <%= item.price %>
+          <%= item.image %>
+        <% end %>
+  </body>
+
+</html>
