@@ -41,7 +41,7 @@ RSpec.describe Item, type: :feature do
         expect(page).to have_content('12')
       end
       it 'shows the item\'s merchant' do
-        Item.create(title: 'x', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'Thing', description: 'does stuff', price: 12, image: 'URL')
         Merchant.create(name: 'Merch name')
         visit '/items/1'
 
