@@ -1,6 +1,24 @@
-<h1><%= @item.title %></h1>
-<a href='/items/<%= @item.id %>/edit'>Edit</a>
-<a href='/items'>Delete</a>
-<%= @item.title %>
-<%= @item.price %>
-<%= @item.description %>
+<!DOCTYPE>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <meta charset="utf-8">
+    <title>Items</title>
+  </head>
+
+  <body>
+
+    <h1><%= @item.title %></h1>
+    <a href='/items/<%= @item.id %>/edit'>Edit</a>
+    <a href='/items'>Delete</a>
+    <%= @item.merchant_id %>
+    <!-- Merchant.find(Item.find(10).merchant_id).name -->
+    <%= @item.title %>
+    <%= @item.price %>
+    <%= @item.description %>
+
+  </body>
+
+</html>
