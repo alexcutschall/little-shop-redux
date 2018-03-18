@@ -1,0 +1,18 @@
+.header {
+  text-align: center;
+  background-color: #f0f0f5;
+  margin: 1px 5px;
+  border: solid;
+  padding: 20px;
+}
+
+.header-title {
+  font-size: 40px;
+}
+
+.flex-container {
+  display: flex;
+  border: solid;
+  margin: 10px 20px;
+  padding: 20px;
+}

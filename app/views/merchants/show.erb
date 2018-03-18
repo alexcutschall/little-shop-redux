@@ -6,8 +6,8 @@
 <body>
   <%= erb :navigation %>
   <div class="header">
-      <h1 class="introduction">Merchant ID: </h1><h3 class ="header-title"><%= @merchant.id %></h1>
-      <h1 class="introduction">Merchant Name: </h1><h3 class ="header-title"><%= @merchant.name %></h1>
+      <h1 class="show-header">Merchant ID: </h1><h3 class ="header-title"><%= @merchant.id %></h1>
+      <h1 class="show-header">Merchant Name: </h1><h3 class ="header-title"><%= @merchant.name %></h1>
         <form action='<%=@merchant.id %>/edit' method= "GET">
           <h1><input type="hidden" name="_method" value="EDIT"></h1>
           <input type="submit" value="edit" class="edit-button"/>
@@ -18,8 +18,12 @@
           <input type="submit" value="delete" class="delete-button"/>
         </form>
   </div>
-Merchant Invoices:
-  <% @merchant.invoices.each do |item| %>
-    <%= invoices.status %>
+Merchant Items:
+  <% @merchant.items.each do |item| %>
+  <ul>
+    <li><img src="<%= item.image %>"></li>
+    <li><%= item.title %></li>
+    <li><%= item.description %></li>
+    <li><%= item.price %></li>
   <% end %>
 </body>
