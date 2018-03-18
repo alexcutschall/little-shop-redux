@@ -23,25 +23,25 @@ RSpec.describe Item, type: :feature do
     end
     context 'Show page' do
       it 'shows item title on top of page' do
-        Item.create(title: 'I\'m here', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'I\'m here', description: 'x', price: 12, image: 'x', merchant_id: 1)
         visit '/items/1'
 
         expect(page).to have_content('I\'m here')
       end
       it 'shows item description' do
-        Item.create(title: 'x', description: 'Ipsum lorum', price: 12, image: 'x')
+        Item.create(title: 'x', description: 'Ipsum lorum', price: 12, image: 'x', merchant_id: 1)
         visit '/items/1'
 
         expect(page).to have_content('Ipsum lorum')
       end
       it 'shows item price' do
-        Item.create(title: 'x', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'x', description: 'x', price: 12, image: 'x', merchant_id: 1)
         visit '/items/1'
 
         expect(page).to have_content('12')
       end
       it 'shows the item\'s merchant' do
-        Item.create(title: 'Thing', description: 'does stuff', price: 12, image: 'URL')
+        Item.create(title: 'Thing', description: 'does stuff', price: 12, image: 'URL', merchant_id: 1)
         Merchant.create(name: 'Merch name')
         visit '/items/1'
 

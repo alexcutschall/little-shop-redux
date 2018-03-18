@@ -9,6 +9,8 @@
   </head>
 
   <body>
+    <%= erb :navigation %>
+    
     <header class="header">
       <h1 class="header-title"><%= @item.title %></h1>
       <a href='/items/<%= @item.id %>/edit'>Edit</a>
