@@ -82,6 +82,14 @@ RSpec.describe Item, type: :feature do
           expect(page).to have_selector("input[value='www.example.com/image.jpg']")
         end
       end
+      context 'Edit page' do
+        it 'shows edit item title on top of page' do
+          Item.create(title: 'Thing', description: 'does stuff', price: 12, image: 'URL')
+          visit '/items/1/edit'
+
+          expect(page).to have_content('Edit Thing')
+        end
+      end
     end
   end
 end
