@@ -11,7 +11,23 @@
     <h1>Create New Item</h1>
     <p>Title</p>
     <form action="/items" method="post">
-      <input type="text" name="item[title]" value="New Title Here"
+      <input type="text" name="item[title]" value="New Title Here">
+      <input class="submit-button" type="submit">
+    </form>
+    <p>Price</p>
+    <form action="/items" method="post">
+      <input type="text" name="item[price]" value="New Price Here">
+      <input class="submit-button" type="submit">
+    </form>
+    <p>Description</p>
+    <form action="/items" method="post">
+      <input type="text" name="item[description]" value="New Description Here">
+      <input class="submit-button" type="submit">
+    </form>
+    <p>Image URL</p>
+    <form action="/items" method="post">
+      <input type="text" name="item[image]" value="www.example.com/image.jpg">
+      <input class="submit-button" type="submit">
     </form>
   </body>
 </html>
