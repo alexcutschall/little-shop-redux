@@ -1,4 +1,27 @@
 <head>
-<title>Edit a Merchant</title>
+  <link rel="stylesheet" type="text/css" href="../../../reset.css">
+  <link rel="stylesheet" type="text/css" href="../../../merchant_dashboard.css">
+<title>Merchant Dashboard</title>
 </head>
 <%= erb :navigation %>
+<div class="header">
+    <h1 class ="header-title">Merchants Dashboard</h1>
+</div>
+<div class="flex-container">
+<table>
+  <tr>
+    <th>Merchant Name</th>
+    <th>Merchant Item Count</th>
+    <th>Average Price of Item</th>
+    <th>Total Cost of Items</th>
+  </tr>
+  <% @merchants.each do |merchant| %>
+  <tr>
+    <td><%= merchant.name %></td>
+    <td><%= merchant.items.count %></td>
+    <td><%= "$" + merchant.average_price %></td>
+    <td><%= "$" + merchant.total_price %></td>
+  </tr>
+    <% end %>
+  </table>
+</div>

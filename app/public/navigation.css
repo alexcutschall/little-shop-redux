@@ -1,13 +1,10 @@
+/* GLOBAL STYLES */
 a {
   color: black;
   text-decoration: none;
 }
-.dropdown {
-    float: right;
-    position: relative;
-    display: inline-block;
-}
 
+/* DROPDOWN STYLES */
 .dropbtn {
     background-color: #4286f4;
     color: white;
@@ -16,6 +13,12 @@ a {
     font-size: 16px;
     border: none;
     border-radius: 12px;
+}
+
+.dropdown {
+    float: right;
+    position: relative;
+    display: inline-block;
 }
 
 .dropdown-links {
@@ -42,17 +45,15 @@ a {
   background-color: #ddd
 }
 
-.nav {
-  margin: 5px;
-  padding: 5px;
-  border: solid;
-}
-
-.merchant-header {
-  float: left;
-}
+/* HEADER STYLES */
 
 .header-links {
   float: right;
   padding: 0px 10px;
+}
+
+.nav {
+  margin: 5px;
+  padding: 5px;
+  border: solid;
 }
