@@ -21,20 +21,42 @@ a.button {
 .edit-button {
   background-color: yellow;
   float: right;
-  margin: 5px;
 }
 
 .delete-button {
   background-color: red;
   float: right;
-  margin: 5px;
 }
 
-a:hover {
+#button a:hover {
     background-color: hotpink;
 }
 
 /* HEADER STYLES */
+
+.merchant-display {
+  display: inline-block;
+  margin: auto;
+  width: 500px;
+  text-align: center;
+  border: solid;
+  padding: auto;
+  width: 50%;
+}
+
+.merchant-header {
+  float: left;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.introduction {
+  font-size: 50px;
+}
+
 .header-title {
   font-size: 40px;
 }
@@ -42,13 +64,9 @@ a:hover {
 .header {
   text-align: center;
   background-color: #f0f0f5;
-  margin: auto;
+  margin: 10px;
   border: solid;
   padding: 20px;
-}
-
-.show-header {
-  font-size: 50px;
 }
 
 /* INVOICE STYLES */
@@ -78,6 +96,7 @@ li.status {
 }
 
 /* MERCHANT STYLES */
-.index-display {
-  border: 1px solid;
+
+.dashboard-display {
+  display: flex;
 }

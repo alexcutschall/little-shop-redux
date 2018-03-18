@@ -10,11 +10,6 @@ class LittleShopApp < Sinatra::Base
     erb :'merchants/index'
   end
 
-  get '/merchants' do
-    @merchants = Merchant.all
-    erb :'merchants/index'
-  end
-
   get '/merchants/new' do
     erb :'merchants/new'
   end
@@ -27,6 +22,11 @@ class LittleShopApp < Sinatra::Base
   get '/merchants/:id/edit' do
     @merchant = Merchant.find(params[:id])
     erb :'merchants/edit'
+  end
+
+  get '/merchants-dashboard' do
+    @merchants = Merchant.all
+    erb :'merchants/merchants-dashboard'
   end
 
   put '/merchants/:id' do |id|
@@ -53,8 +53,6 @@ class LittleShopApp < Sinatra::Base
     @invoice = Invoice.find(params[:id])
     erb :'invoices/edit'
   end
-
-set :method_override, true
 
   put '/invoices/:id' do |id|
     Invoice.update(status: params[:invoice])

@@ -6,12 +6,14 @@
 <body>
 <%= erb :navigation %>
 <div class="header">
+    <a href='/merchants-dashboard' class="dashboard-display">Dashboard</a>
     <h1 class ="header-title">Merchants</h1>
     <a href="/merchants/new" class="button">Create a New Merchant!</a>
     <a href='/merchants-dashboard'></a>
 </div>
     <% @merchants.each do |merchant| %>
-      <h3 class="merchant-header merchant-display"><a href='merchants/<%= merchant.id %>'><%= merchant.name %></a>
+    <div class="merchant-header merchant-display">
+      <h3><a href='merchants/<%= merchant.id %>'><%= merchant.name %></a></h3>
         <form action='merchants/<%=merchant.id %>/edit' method= "GET">
           <h1><input type="hidden" name="_method" value="EDIT"></h1>
           <input type="submit" value="edit" class="edit-button"/>
@@ -21,5 +23,6 @@
           <input type="hidden" name="_method" value="DELETE">
           <input type="submit" value="delete" class="delete-button"/>
         </form>
+      </div>
     <% end %>
 </body>

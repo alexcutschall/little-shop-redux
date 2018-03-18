@@ -32,6 +32,7 @@ CSV.foreach(
   header_converters: :symbol
 ) do |info|
   Item.create!(
+    id: info[:id],
     title: info[:name],
     description: info[:description],
     price: info[:unit_price],
