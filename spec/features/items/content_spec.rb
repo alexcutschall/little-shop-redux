@@ -56,17 +56,17 @@ RSpec.describe Item, type: :feature do
         it 'has a form for the new title' do
           visit '/items/new'
 
-          expect(page).to have_selector("input[value='Title']")
+          expect(page).to have_selector("input[value='New Title Here']")
         end
         it 'has a form for the new description' do
           visit '/items/new'
 
-          expect(page).to have_selector("input[value='Description']")
+          expect(page).to have_selector("input[value='New Description Here']")
         end
         it 'has a form for the new price' do
           visit '/items/new'
 
-          expect(page).to have_selector("input[value='0.00']")
+          expect(page).to have_selector("input[value='New Price Here']")
         end
         it 'has a form for the new image URL' do
           visit '/items/new'

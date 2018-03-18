@@ -4,10 +4,14 @@
     <link rel="stylesheet" href="">
     <link rel="stylesheet" type="text/css" href="../../../main.css">
     <meta charset="utf-8">
-    <title>%= @item.title %></title>
+    <title>Create a New Item</title>
   </head>
 
   <body>
-
+    <h1>Create New Item</h1>
+    <p>Title</p>
+    <form action="/items" method="post">
+      <input type="text" name="item[title]" value="New Title Here"
+    </form>
   </body>
 </html>
