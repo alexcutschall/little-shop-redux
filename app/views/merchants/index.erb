@@ -3,6 +3,7 @@
   <link rel="stylesheet" type="text/css" href="../../../main.css">
   <title>Merchant Index</title>
 </head>
+<body>
 <%= erb :navigation %>
 <div class="header">
     <h1 class ="header-title">Merchants</h1>
@@ -10,7 +11,6 @@
     <a href='/merchants-dashboard'></a>
 </div>
     <% @merchants.each do |merchant| %>
-    <div class="flex-container">
       <h3 class="merchant-header merchant-display"><a href='merchants/<%= merchant.id %>'><%= merchant.name %></a>
         <form action='merchants/<%=merchant.id %>/edit' method= "GET">
           <h1><input type="hidden" name="_method" value="EDIT"></h1>
@@ -21,6 +21,5 @@
           <input type="hidden" name="_method" value="DELETE">
           <input type="submit" value="delete" class="delete-button"/>
         </form>
-    </div>
     <% end %>
 </body>
