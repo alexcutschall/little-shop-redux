@@ -54,8 +54,6 @@ class LittleShopApp < Sinatra::Base
     erb :'invoices/edit'
   end
 
-set :method_override, true
-
   put '/invoices/:id' do |id|
     Invoice.update(status: params[:invoice])
     redirect "/invoices/#{id}"
@@ -73,6 +71,11 @@ set :method_override, true
 
   get '/items/new' do
     erb :'items/new'
+  end
+
+  post '/items' do
+    item = Item.create(params[:item])
+    redirect :'/items'
   end
 
   get '/items/:id' do
