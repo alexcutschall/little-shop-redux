@@ -5,20 +5,23 @@
     <link rel="stylesheet" href="">
     <link rel="stylesheet" type="text/css" href="../../../main.css">
     <meta charset="utf-8">
-    <title>%= @item.title %></title>
+    <title><%= @item.title %></title>
   </head>
 
   <body>
+    <header class="header">
+      <h1 class="header-title"><%= @item.title %></h1>
+      <a href='/items/<%= @item.id %>/edit'>Edit</a>
+      <a href='/items'>Delete</a>
+    </header>
 
-    <h1><%= @item.title %></h1>
-    <a href='/items/<%= @item.id %>/edit'>Edit</a>
-    <a href='/items'>Delete</a>
-    <%= @item.merchant_id %>
-    <!-- Merchant.find(Item.find(10).merchant_id).name -->
-    <%= @item.title %>
-    <%= @item.price %>
-    <%= @item.description %>
-
+    <ul>
+      <li><a href="/merchants/<%= @item.merchant_id %>"><%= @merchants.find(@item.merchant_id).name %></a></li>
+      <li><img src="<%= @item.image %>" alt="Cotton Candy"></li>
+      <li><%= @item.title %></li>
+      <li>$<%= @item.price.to_f / 100 %></li>
+      <li><%= @item.description %></li>
+    </ul>
   </body>
 
 </html>

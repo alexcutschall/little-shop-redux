@@ -53,6 +53,14 @@ RSpec.describe Item, type: :feature do
 
           expect(page).to have_content('Create New Item')
         end
+        it 'has a dropdown menu to select from known merchants' do
+          Merchant.create(name: 'Bill')
+          Merchant.create(name: 'Bob')
+          Merchant.create(name: 'Bryan')
+          visit 'items/new'
+
+          expect(page).to have_select('Merchants', options: %w[Bill Bob Bryan])
+        end
         it 'has a form for the new title' do
           visit '/items/new'
 

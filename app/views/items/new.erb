@@ -13,6 +13,11 @@
     </header>
 
     <form action="/items" method="post">
+      <p>Merchant</p>
+      <select name="Merchants"><% @merchants.each do |merchant| %>
+          <option value="merchant"><%= merchant.name %></option>
+        <% end %>
+      </select>
       <p>Title</p>
       <input type="text" name="item[title]" value="New Title Here">
       <p>Price</p>
@@ -20,10 +25,10 @@
       <p>Description</p>
       <input type="text" name="item[description]" value="New Description Here">
       <p>Image URL</p>
-      <input type="text" name="item[image]" value="www.example.com/image.jpg">
+      <input type="text" name="item[image]" value="www.example.com/image.jpg"><br/>
+      <a href="/items">Cancel</a>
+      <a href="/items">Create Item</a>
     </form>
-    <a href="/items">Cancel</a>
-    <a href="/items">Create Item</a>
   </body>
 
 </html>
