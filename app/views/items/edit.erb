@@ -1,22 +1,35 @@
-<header class="header">
-  <h1 class="header-title">Edit <%= @item.title %></h1>
-</header>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../../../reset.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <title>Edit Item</title>
+  </head>
 
-<form action="/items" method="post">
-  <input type="hidden" name="_method" value="PUT">
-  <p>Merchant</p>
-  <select name="Merchants"><% @merchants.each do |merchant| %>
-    <option value="merchant"><%= merchant.name %></option>
-    <% end %>
-  </select>
-  <p>Title</p>
-  <input type="text" name="item[title]" value="New Title Here">
-  <p>Price</p>
-  <input type="text" name="item[price]" value="New Price Here">
-  <p>Image URL</p>
-  <input type="text" name="item[image]" value="www.example.com/image.jpg">
-  <p>Description</p>
-  <input type="text" name="item[description]" value="New Description Here"><br/>
-  <a href="/items">Cancel</a>
-  <input class="submit-button" type="submit" value="Update Item">
-</form>
+  <body>
+    <%= erb :navigation %>
+
+    <header class="header">
+      <h1 class="header-title">Edit <%= @item.title %></h1>
+    </header>
+
+    <form action="/items" method="post">
+      <input type="hidden" name="_method" value="PUT">
+      <p>Merchant</p>
+      <select name="Merchants"><% @merchants.each do |merchant| %>
+        <option value="merchant"><%= merchant.name %></option>
+        <% end %>
+      </select>
+      <p>Title</p>
+      <input type="text" name="item[title]" value="New Title Here">
+      <p>Price</p>
+      <input type="text" name="item[price]" value="New Price Here">
+      <p>Image URL</p>
+      <input type="text" name="item[image]" value="www.example.com/image.jpg">
+      <p>Description</p>
+      <input type="text" name="item[description]" value="New Description Here"><br/>
+      <a href="/items">Cancel</a>
+      <input class="submit-button" type="submit" value="Update Item">
+    </form>
+  </body>
+</html>

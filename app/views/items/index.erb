@@ -1,13 +1,26 @@
-<header class="header">
-  <a href='/items/dashboard'>Dashboard</a>
-  <h1 class="header-title">Items</h1>
-  <a href='/items/new'>Create A New Item</a>
-</header>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../../../reset.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <title>Edit Item</title>
+  </head>
 
-<ul><% @items.each do |item| %>
-  <li><a href='/items/<%= item.id %>'><%= item.title %></a></li>
-  <li><%= item.description %></li>
-  <li><%= item.price %></li>
-  <li><img src="<%= item.image %>" alt="Cotton Candy"</li>
-  <% end %>
-</ul>
+  <body>
+    <%= erb :navigation %>
+
+    <header class="header">
+      <a href='/items/dashboard'>Dashboard</a>
+      <h1 class="header-title">Items</h1>
+      <a href='/items/new'>Create A New Item</a>
+    </header>
+
+    <% @items.each do |item| %>
+    <div class="item">
+      <div><img  src="<%= item.image %>" alt="Cotton Candy" style="width: 50px; height: 50px"></div>
+      <div class="link"><a href='/items/<%= item.id %>'><%= item.title %></a></div>
+      <div>$<%= item.price.to_f / 100 %></div>
+    </div>
+    <% end %>
+  </body>
+</html>
