@@ -4,11 +4,11 @@
 <title>Merchant Dashboard</title>
 </head>
 <%= erb :navigation %>
+<body>
 <div class="header">
     <h1 class ="header-title">Merchants Dashboard</h1>
 </div>
-<div class="flex-container">
-<table>
+<table class="flex-container">
   <tr>
     <th>Merchant Name</th>
     <th>Merchant Item Count</th>
@@ -16,12 +16,13 @@
     <th>Total Cost of Items</th>
   </tr>
   <% @merchants.each do |merchant| %>
-  <tr>
-    <td><%= merchant.name %></td>
-    <td><%= merchant.items.count %></td>
-    <td><%= "$" + merchant.average_price %></td>
-    <td><%= "$" + merchant.total_price %></td>
-  </tr>
+    <div class="table-data">
+      <tr>
+        <td><%= merchant.name %></td>
+        <td><%= merchant.items.count %></td>
+        <td><%= merchant.average_price %></td>
+      </tr>
+    </div>
     <% end %>
-  </table>
-</div>
+</table>
+</body>
