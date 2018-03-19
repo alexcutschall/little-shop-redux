@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <meta charset="utf-8">
+    <title>Create a New Item</title>
+  </head>
+
+  <body>
+    <%= erb :navigation %>
+
+    <header class="header">
+      <h1>Create New Item</h1>
+    </header>
+
+    <form action="/items" method="post">
+      <p>Merchant</p>
+      <select name="Merchants"><% @merchants.each do |merchant| %>
+          <option value="merchant"><%= merchant.name %></option>
+        <% end %>
+      </select>
+      <p>Title</p>
+      <input type="text" name="item[title]" value="New Title Here">
+      <p>Price</p>
+      <input type="number" name="item[price]" value="New Price Here">
+      <p>Image URL</p>
+      <input type="url" name="item[image]" value="www.example.com/image.jpg">
+      <p>Description</p>
+      <input type="text" name="item[description]" value="New Description Here"><br/>
+      <a href="/items">Cancel</a>
+      <input class="submit-button" type="submit" value="Create Item">
+    </form>
+  </body>
+
+</html>

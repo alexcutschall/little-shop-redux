@@ -15,5 +15,5 @@ RSpec.describe InvoiceItem do
 
       expect(Invoice.Item.unit_price).to eq(10)
     end
-  end 
+  end
 end
