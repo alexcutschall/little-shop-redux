@@ -71,29 +71,26 @@ a.button {
 
 /* INVOICE STYLES */
 .invoice-display {
+  margin: auto;
+  width: 500px;
   border: solid;
-  margin: 5px;
-  padding: 5px;
+  padding: auto;
+  width: 50%;
 }
+
 
 .invoice-display li {
-  width: 75%;
-  margin: auto;
-  padding: 2px 5px;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
   display: inline-block;
+  padding: 2px 30px;
 }
 
-li.buttons {
-  float: right;
+.invoice-display a:hover {
+  background-color: hotpink;  
 }
 
-li.invoice-id {
-  width: 500px;
-}
-
-li.status {
-  width: 100px;
-}
 
 /* MERCHANT STYLES */
 

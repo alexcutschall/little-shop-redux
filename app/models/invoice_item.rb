@@ -1,3 +1,4 @@
+# Defines an Invoice Item
 class InvoiceItem < ActiveRecord::Base
   validates :item_id, presence: true
   validates :invoice_id, presence: true
@@ -9,5 +10,4 @@ class InvoiceItem < ActiveRecord::Base
   def self.total_price
     sum(:quantity)
   end
-
 end
