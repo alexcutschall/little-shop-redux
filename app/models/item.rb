@@ -7,10 +7,12 @@ class Item < ActiveRecord::Base
   validates :merchant_id, presence: true
   has_many :invoice_items
 
-  def total_price
-    invoice_items.reduce(0) do |total, invoice_item|
-      total + invoice_item.unit_price
-    end
+  def self.average_price
+    (average(:price) / 100).to_f.round(2)
+  end
+
+  def self.total_price
+    Item.sum("unit_price * quantity")
   end
 
   def unit_price

@@ -97,3 +97,19 @@ a.button {
 .dashboard-display {
   display: flex;
 }
+
+/* ITEM STYLES */
+
+.item {
+  display: flex;
+  margin: 10px;
+  width: 20%;
+  text-align: center;
+  border: solid;
+  flex: auto;
+  flex-direction: row;
+}
+
+.link {
+  text-decoration-line: underline;
+}
