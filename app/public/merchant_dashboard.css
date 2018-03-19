@@ -11,7 +11,6 @@
 }
 
 .flex-container {
-  display: flex;
   border: solid;
   margin: 10px 20px;
   padding: 20px;
