@@ -79,9 +79,25 @@ RSpec.describe Item, type: :feature do
 
         expect(current_path).to eql('/items')
       end
-      it 'has a create item link' do
+      it 'has a create item button' do
         visit 'items/new'
-        click_link 'Create Item'
+        click_button 'Create Item'
+
+        expect(current_path).to eql('/items')
+      end
+    end
+    context 'Edit page' do
+      it 'has a cancel link' do
+        Item.create(title: 'Thing', description: 'does stuff', price: 12, image: 'URL')
+        visit 'items/1/edit'
+        click_link 'Cancel'
+
+        expect(current_path).to eql('/items')
+      end
+      it 'has an edit item button' do
+        Item.create(title: 'Thing', description: 'does stuff', price: 12, image: 'URL')
+        visit 'items/1/edit'
+        click_button 'Update Item'
 
         expect(current_path).to eql('/items')
       end
