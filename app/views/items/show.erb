@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" type="text/css" href="../../../reset.css">
     <link rel="stylesheet" type="text/css" href="../../../main.css">
-    <meta charset="utf-8">
-    <title><%= @item.title %></title>
+    <title>Edit Item</title>
   </head>
 
   <body>
-    <%= erb :navigation %>
-    
+      <%= erb :navigation %>
+
     <header class="header">
       <h1 class="header-title"><%= @item.title %></h1>
       <a href='/items/<%= @item.id %>/edit'>Edit</a>
@@ -25,5 +23,4 @@
       <li><%= @item.description %></li>
     </ul>
   </body>
-
 </html>
