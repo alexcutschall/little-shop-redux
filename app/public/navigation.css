@@ -33,7 +33,7 @@ a {
   z-index: 1;
 }
 
-.dropdown:hover .dropbtn {
+.dropbtn:hover {
   background-color: hotpink;
 }
 
