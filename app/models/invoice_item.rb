@@ -22,4 +22,12 @@ class InvoiceItem < ActiveRecord::Base
   def self.lowest_unit_price
     InvoiceItem.order('unit_price').first.invoice_id
   end
+
+  def self.largest_quantity
+    InvoiceItem.order('quantity DESC').first.invoice_id
+  end
+
+  def self.smallest_quantity
+    InvoiceItem.order('quantity').first.invoice_id
+  end
 end
