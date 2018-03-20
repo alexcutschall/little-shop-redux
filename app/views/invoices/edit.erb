@@ -1,10 +1,40 @@
-  <p>Edit Invoice Status</p>
-  <li>Invoice ID:</li>
-  <li><p> <%= @invoice.id %> </p></li>
-  <li>Merchant ID:</li>
-  <li><p> <%= @invoice.merchant_id %> </p></li>
-<form action="/invoices/<%= @invoice.id %>" method="post">
-  <input type="hidden" name="_method" value="PUT" />
-  <textarea name='invoice[status]'><%= @invoice.status %></textarea><br/>
-  <input type='submit'/>
-</form>
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="../../../reset.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <title>Invoice: <%= @invoice.id %> - <%= @invoice.status %></title>
+  </head>
+
+  <body>
+    <%= erb :navigation %>
+      <div class="header">
+          <a href='/invoices-dashboard' class="dashboard-display">Dashboard</a>
+          <h1 class ="header-title">Invoice: <%= @invoice.id %> - <%= @invoice.status %></h1>
+          <h1>
+            <form action='invoices/<%= @invoice.id %>' method= "POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="submit" value="delete" class="delete-button"/>
+            </form>
+
+            <form action='invoices/<%=@invoice.id %>/edit' method= "GET">
+              <h1><input type="hidden" name="_method" value="EDIT"></h1>
+              <input type="submit" value="edit" class="edit-button"/>
+            </form>
+          </h1>
+          <a href='/invoices-dashboard'></a>
+      </div>
+
+      <p>Edit Invoice Status</p>
+      <li>Invoice ID:</li>
+      <li><p> <%= @invoice.id %> </p></li>
+      <li>Merchant ID:</li>
+      <li><p> <%= @invoice.merchant_id %> </p></li>
+    <form action="/invoices/<%= @invoice.id %>" method="post">
+      <input type="hidden" name="_method" value="PUT" />
+      <textarea name='invoice[status]'><%= @invoice.status %></textarea><br/>
+      <input type='submit'/>
+    </form>
+  </body>
+</html>
