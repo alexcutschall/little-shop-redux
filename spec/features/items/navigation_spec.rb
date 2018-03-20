@@ -32,6 +32,7 @@ RSpec.describe Item, type: :feature do
         expect(current_path).to eql('/items/1')
       end
       it 'takes user from index to items-dashboard' do
+        Item.create(title: 'x', description: 'x', price: 12, image: 'x', merchant_id: 1)
         visit '/items'
         click_link 'Dashboard'
 
@@ -94,14 +95,14 @@ RSpec.describe Item, type: :feature do
     end
     context 'Edit page' do
       it 'has a cancel link' do
-        Item.create(title: 'Thing', description: 'does stuff', price: 12, image: 'URL')
+        Item.create(title: 'Thing', description: 'does stuff', price: 12, image: 'URL', merchant_id: 1)
         visit 'items/1/edit'
         click_link 'Cancel'
 
         expect(current_path).to eql('/items')
       end
       it 'has an edit item button' do
-        Item.create(title: 'Thing', description: 'does stuff', price: 12, image: 'URL')
+        Item.create(title: 'Thing', description: 'does stuff', price: 12, image: 'URL', merchant_id: 1)
         visit 'items/1/edit'
         click_button 'Update Item'
 
