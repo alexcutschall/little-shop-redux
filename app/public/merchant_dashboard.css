@@ -1,3 +1,7 @@
+body {
+  background: linear-gradient(to top, hotpink, white);
+}
+
 .header {
   text-align: center;
   background-color: #f0f0f5;
@@ -11,7 +15,6 @@
 }
 
 .flex-container {
-  display: flex;
   border: solid;
   margin: 10px 20px;
   padding: 20px;
