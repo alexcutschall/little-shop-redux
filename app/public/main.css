@@ -1,5 +1,6 @@
 body {
-  background: linear-gradient(to top, hotpink, white)
+  background: linear-gradient(to top, hotpink, white);
+  /* font-family: 'Raleway', sans-serif; */
 }
 
 table {
@@ -89,6 +90,7 @@ a.button {
 }
 
 .merchant-display {
+  background: linear-gradient(to top, lightgreen, white);
   display: inline-block;
   border: 2px solid;
   height: 200px;
