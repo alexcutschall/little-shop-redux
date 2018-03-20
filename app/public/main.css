@@ -29,10 +29,6 @@ td a:hover {
   background-color: hotpink;
 }
 
-h1 {
-
-}
-
 /* BUTTON STYLES */
 a.button {
   color: white;
@@ -174,9 +170,7 @@ a.button {
   background-color: hotpink;
 }
 
-
 /* MERCHANT STYLES */
-
 
 .button:hover {
   color: hotpink;

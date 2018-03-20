@@ -16,7 +16,8 @@
         <h1 class ="header-title">Invoice: <%= @invoice.id %> - <%= @invoice.status.capitalize %></h1>
         <div class="invoice-alignment">
 
-          <form action='/<%=@invoice.id %>/edit' method= "GET">
+          <form action='/invoices/<%=@invoice.id %>/edit' method= "GET">
+            <input type="hidden" name="_method" value="EDIT">
             <input type="submit" value="edit" class="edit-button-center"/>
           </form>
 

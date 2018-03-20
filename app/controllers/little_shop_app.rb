@@ -66,6 +66,8 @@ class LittleShopApp < Sinatra::Base
 
   delete '/invoices/:id' do |id|
     Invoice.destroy(id.to_i)
+    invoice_items = InvoiceItem.where(invoice_id: id)
+    invoice_items.each(&:destroy)
     redirect '/invoices'
   end
 

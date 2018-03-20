@@ -16,18 +16,18 @@ class InvoiceItem < ActiveRecord::Base
   end
 
   def self.highest_unit_price
-    InvoiceItem.order('unit_price DESC').first.invoice_id
+    order('unit_price DESC').first.invoice_id
   end
 
   def self.lowest_unit_price
-    InvoiceItem.order('unit_price').first.invoice_id
+    order('unit_price').first.invoice_id
   end
 
   def self.largest_quantity
-    InvoiceItem.order('quantity DESC').first.invoice_id
+    order('quantity DESC').first.invoice_id
   end
 
   def self.smallest_quantity
-    InvoiceItem.order('quantity').first.invoice_id
+    order('quantity').first.invoice_id
   end
 end
