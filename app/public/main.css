@@ -41,14 +41,6 @@ a.button {
   display: inline-block;
 }
 
-.edit-button-center {
-  background-color: yellow;
-}
-
-.delete-button-center {
-  background-color: red;
-
-}
 
 #button a:hover {
     background-color: hotpink;
@@ -96,7 +88,7 @@ a.button {
   margin: auto;
   width: 500px;
   border: solid;
-  padding: auto;
+  padding: 15px 0px;
   width: 50%;
 }
 

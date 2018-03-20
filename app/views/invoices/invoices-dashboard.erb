@@ -1,0 +1,31 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="../../../reset.css">
+  <link rel="stylesheet" type="text/css" href="../../../merchant_dashboard.css">
+<title>Invoice Dashboard</title>
+</head>
+
+<%= erb :navigation %>
+
+<body>
+
+<div class="header">
+    <h1 class ="header-title">Invoice Dashboard</h1>
+</div>
+<table class="flex-container">
+  <tr>
+    <th>Invoice Statuses</th>
+    <th>Invoice Status</th>
+    <th>Average Price of Item</th>
+    <th>Total Cost of Items</th>
+  </tr>
+  <!-- <% @invoices.each do |invoice| %>
+    <div class="table-data">
+      <tr>
+        <td><%= invoice.id %></td>
+        <td><%= invoice.status %></td>
+        <td><%= invoice.merchant_id %></td>
+      </tr>
+    </div>
+    <% end %> -->
+</table>
+</body>
