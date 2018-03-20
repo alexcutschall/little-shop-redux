@@ -91,6 +91,11 @@ class LittleShopApp < Sinatra::Base
     erb :'items/edit'
   end
 
+  get '/items-dashboard' do
+    @items = Item.all
+    erb :'items/dashboard'
+  end
+
   post '/items' do
     item = Item.create(params[:item])
     redirect :'/items'

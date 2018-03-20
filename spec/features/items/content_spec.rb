@@ -50,6 +50,7 @@ RSpec.describe Item, type: :feature do
 
         expect(page).to have_content('Merch name')
       end
+    end
     context 'New page' do
       it 'says new on top of page' do
           visit '/items/new'
