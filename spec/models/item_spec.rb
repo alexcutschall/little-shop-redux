@@ -59,14 +59,14 @@ RSpec.describe Item do
 
       expect(Item.total_count).to eql(5)
     end
-    it '.avg_price' do
+    it '.average_price' do
       Item.create(title: 'Thing', description: 'x', price: 8, image: 'x')
       Item.create(title: 'Another thing', description: 'x', price: 9, image: 'x')
       Item.create(title: 'Something else', description: 'x', price: 10, image: 'x')
       Item.create(title: 'Anything', description: 'x', price: 11, image: 'x')
       Item.create(title: 'Stuff', description: 'x', price: 12, image: 'x')
 
-      expect(Item.avg_price).to eql(10)
+      expect(Item.average_price).to eql(10)
     end
     it '.newest' do
       Item.create(title: 'Thing', description: 'x', price: 12, image: 'x')
