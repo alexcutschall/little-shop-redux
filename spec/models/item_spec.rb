@@ -49,4 +49,7 @@ RSpec.describe Item do
       expect(item).to be_invalid
     end
   end
+  context 'Class methods' do
+
+  end
 end

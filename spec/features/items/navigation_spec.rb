@@ -31,6 +31,12 @@ RSpec.describe Item, type: :feature do
 
         expect(current_path).to eql('/items/1')
       end
+      it 'takes user from index to items-dashboard' do
+        visit '/items'
+        click_link 'dashboard'
+
+        expect(current_path).to eql('/items-dashboard')
+      end
     end
     context 'Show page' do
       it 'has an edit link' do
