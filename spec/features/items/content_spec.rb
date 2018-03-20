@@ -97,11 +97,11 @@ RSpec.describe Item, type: :feature do
     end
     context 'Dashboard' do
       it 'shows the total count of items' do
-        Item.create(title: 'Thing', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Another thing', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Something else', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Anything', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Stuff', description: 'x', price: 12, image: 'x')
+        Item.create!(title: 'Thing', description: 'x', price: 12, image: 'x')
+        Item.create!(title: 'Another thing', description: 'x', price: 12, image: 'x')
+        Item.create!(title: 'Something else', description: 'x', price: 12, image: 'x')
+        Item.create!(title: 'Anything', description: 'x', price: 12, image: 'x')
+        Item.create!(title: 'Stuff', description: 'x', price: 12, image: 'x')
         visit '/items-dashboard'
 
         expect(page).to have_content('Total Item Count')
