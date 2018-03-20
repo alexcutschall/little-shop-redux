@@ -164,6 +164,14 @@ a.button {
   background-color: hotpink;
 }
 
+.invoice-edit-button {
+  float: right;
+}
+
+.invoice-delete-button {
+  float: right;
+}
+
 
 /* MERCHANT STYLES */
 

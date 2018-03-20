@@ -10,7 +10,7 @@
 <body>
   <%= erb :navigation %>
     <div class="header">
-        <a href='/invoices-dashboard' class="dashboard-display">Dashboard</a>
+        <a href='/invoices-dashboard' class="dashboard-link">Dashboard</a>
         <h1 class ="header-title">Invoices</h1>
         <a href='/invoices-dashboard'></a>
     </div>
@@ -26,12 +26,12 @@
         <li><a href="/invoices/<%= invoice.id %>"><%= invoice.id %></a></li>
         <li> <%= invoice.status %> </li>
 
-        <form action='invoices/<%= invoice.id %>' method= "POST">
+        <form action='invoices/<%= invoice.id %>' method= "POST" class="invoice-edit-button">
           <input type="hidden" name="_method" value="DELETE">
           <input type="submit" value="delete" class="delete-button"/>
         </form>
 
-        <form action='invoices/<%=invoice.id %>/edit' method= "GET">
+        <form action='invoices/<%=invoice.id %>/edit' method= "GET"class="invoice-delete-button">
           <h1><input type="hidden" name="_method" value="EDIT"></h1>
           <input type="submit" value="edit" class="edit-button"/>
         </form>

@@ -9,7 +9,9 @@
     <form action="/merchants/<%= @merchant.id %>" method="post">
       <h1>Edit</h1>
       <input type="hidden" name="_method" value="PUT">
-      <input type="text" name="merchant[name]" value= "<%= @merchant.name %>"/><br/>
+      <input type="text" name="merchant[name]" value= "<%= @merchant.name %>"/>
+      <br>
+      <a href="/merchants"><button type="button">Cancel</button></a>
       <input type= 'submit'/>
     </form>
   </header>
