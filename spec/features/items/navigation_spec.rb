@@ -33,7 +33,7 @@ RSpec.describe Item, type: :feature do
       end
       it 'takes user from index to items-dashboard' do
         visit '/items'
-        click_link 'dashboard'
+        click_link 'Dashboard'
 
         expect(current_path).to eql('/items-dashboard')
       end
