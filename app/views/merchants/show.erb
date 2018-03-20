@@ -1,13 +1,15 @@
 <head>
   <link rel="stylesheet" type="text/css" href="../../../reset.css">
-  <link rel="stylesheet" type="text/css" href="../../../main.css">
+  <link rel="stylesheet" type="text/css" href="../../../merchant_show.css">
   <title>Merchant Page</title>
 </head>
 <body>
   <%= erb :navigation %>
   <div class="header">
-      <h1 class="show-header">Merchant ID: </h1><h3 class ="header-title"><%= @merchant.id %></h1>
-      <h1 class="show-header">Merchant Name: </h1><h3 class ="header-title"><%= @merchant.name %></h1>
+      <h1>Merchant ID: </h1>
+      <h3><%= @merchant.id %></h1>
+        <br>
+      <h1>Merchant Name: </h1><h3><%= @merchant.name %></h1>
         <form action='<%=@merchant.id %>/edit' method= "GET">
           <h1><input type="hidden" name="_method" value="EDIT"></h1>
           <input type="submit" value="edit" class="edit-button"/>
@@ -18,12 +20,14 @@
           <input type="submit" value="delete" class="delete-button"/>
         </form>
   </div>
-Merchant Items:
+<p style="text-align:center;">Merchant Items:<p>
   <% @merchant.items.each do |item| %>
-  <ul>
-    <li><img src="<%= item.image %>"></li>
-    <li><%= item.title %></li>
-    <li><%= item.description %></li>
-    <li><%= item.price %></li>
+  <section class="merchant-display">
+    <ul>
+      <li><img src="<%= item.image %>"></li>
+      <li><%= item.title %></li>
+      <li><%= item.description %></li>
+      <li><%= "$" + (item.price / 100).to_s %></li>
+  </section>
   <% end %>
 </body>
