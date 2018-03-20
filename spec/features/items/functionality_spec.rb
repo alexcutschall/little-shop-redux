@@ -8,7 +8,7 @@ RSpec.describe Item, type: :feature do
         fill_in('item[title]', with: 'New Things Title')
         click_button('Create Item')
 
-        expect(page).to have_content('New Thing Title')
+        expect(page).to have_content('New Things Title')
       end
     end
   end

@@ -88,7 +88,8 @@ RSpec.describe Item, type: :feature do
     end
     context 'Edit page' do
       it 'shows edit item title on top of page' do
-        Item.create(title: 'Thing', description: 'does stuff', price: 12, image: 'URL')
+        Item.create(title: 'Thing', description: 'does stuff', price: 12, image: 'URL', merchant_id: 1)
+
         visit '/items/1/edit'
 
         expect(page).to have_content('Edit Thing')
