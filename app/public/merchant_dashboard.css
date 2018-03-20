@@ -1,3 +1,7 @@
+body {
+  background: linear-gradient(to top, hotpink, white);
+}
+
 .header {
   text-align: center;
   background-color: #f0f0f5;
