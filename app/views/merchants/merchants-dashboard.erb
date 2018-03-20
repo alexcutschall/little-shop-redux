@@ -8,6 +8,13 @@
 <div class="header">
     <h1 class ="header-title">Merchants Dashboard</h1>
 </div>
+<div class="header">
+  <h1>Merchant with the Most Items:</h1>
+  <a href="/merchants/<%= @merchants.most_items.id %>" class="most-items"><%= @merchants.most_items.name %></a>
+  <br><br>
+  <h1>Merchant with the Highest Priced Item:</h1>
+  <a href="/merchants/<%= @merchants.highest_priced_item.id %>"><%= @merchants.highest_priced_item.name %></a>
+</div>
 <table class="flex-container">
   <tr>
     <th>Merchant Name</th>
@@ -16,7 +23,7 @@
     <th>Total Cost of Items</th>
   </tr>
   <% @merchants.each do |merchant| %>
-    <div class="table-data">
+    <div>
       <tr>
         <td><%= merchant.name %></td>
         <td><%= merchant.items.count %></td>
