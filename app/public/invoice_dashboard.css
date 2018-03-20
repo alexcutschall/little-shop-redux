@@ -1,0 +1,31 @@
+body {
+  background: linear-gradient(to top, hotpink, white)
+}
+
+.header {
+  text-align: center;
+  background-color: #f0f0f5;
+  margin: 1px 5px;
+  border: solid;
+  padding: 20px;
+}
+
+.header-title {
+  font-size: 40px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-flow: column nowrap;
+  border: 3px black solid;
+}
+
+.info-box {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  border: 3px black solid;
+  margin: 25px;
+}
