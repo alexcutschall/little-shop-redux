@@ -16,9 +16,11 @@ class Item < ActiveRecord::Base
     Item.all.count
   end
 
-  def self.oldest
+  def self.newest
+    Item.order(:created_at).first.title
   end
 
-  def self.newest
+  def self.oldest
+    Item.order(:created_at).last.title
   end
 end

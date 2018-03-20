@@ -50,6 +50,7 @@ RSpec.describe Item do
     end
   end
   context 'Class methods' do
+
     it '.total_count' do
       Item.create(title: 'Thing', description: 'x', price: 12, image: 'x')
       Item.create(title: 'Another thing', description: 'x', price: 12, image: 'x')
@@ -57,7 +58,7 @@ RSpec.describe Item do
       Item.create(title: 'Anything', description: 'x', price: 12, image: 'x')
       Item.create(title: 'Stuff', description: 'x', price: 12, image: 'x')
 
-      expect(Item.total_count).to eql(5)
+      expect(Item.total_count).to eq(5)
     end
     it '.average_price' do
       Item.create(title: 'Thing', description: 'x', price: 8, image: 'x')
