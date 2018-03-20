@@ -2,6 +2,32 @@ body {
   background: linear-gradient(to top, hotpink, white)
 }
 
+table {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 90%;
+}
+
+tr {
+  border: 2px black solid;
+  background-color: white;
+}
+
+th {
+  padding: 10px;
+}
+
+td {
+  padding: 10px;
+}
+
+td a:hover {
+  background-color: hotpink;
+}
+
 /* BUTTON STYLES */
 a.button {
   color: white;
@@ -31,6 +57,16 @@ a.button {
   background-color: red;
   text-align:center;
 }
+
+.invoice-alignment {
+  text-align: center;
+  display: inline-block;
+}
+.invoice-alignment form {
+  text-align: center;
+  display: inline-block;
+}
+
 
 #button a:hover {
     background-color: hotpink;
@@ -108,29 +144,26 @@ a.button {
 
 /* INVOICE STYLES */
 .invoice-display {
+  margin: auto;
+  width: 500px;
   border: solid;
-  margin: 5px;
-  padding: 5px;
+  padding: 20px 0px;
+  width: 50%;
 }
+
 
 .invoice-display li {
-  width: 75%;
-  margin: auto;
-  padding: 2px 5px;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
   display: inline-block;
+  padding: 2px 30px;
 }
 
-li.buttons {
-  float: right;
+.invoice-display a:hover {
+  background-color: hotpink;
 }
 
-li.invoice-id {
-  width: 500px;
-}
-
-li.status {
-  width: 100px;
-}
 
 /* MERCHANT STYLES */
 

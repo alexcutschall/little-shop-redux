@@ -1,3 +1,4 @@
+# Defines an Invoice Item
 class InvoiceItem < ActiveRecord::Base
   validates :item_id, presence: true
   validates :invoice_id, presence: true
@@ -10,4 +11,7 @@ class InvoiceItem < ActiveRecord::Base
     sum(:quantity)
   end
 
+  def find_title(id)
+    Item.find(id).title
+  end 
 end

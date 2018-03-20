@@ -1,53 +1,43 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <link rel="stylesheet" href="">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
-    <meta charset="utf-8">
-    <title>Invoices</title>
-  </head>
-  
-  <body>
-    <div class="row nav">
-      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-        <h1>Little Shop</h1>
-      </div>
+<head>
+  <link rel="stylesheet" type="text/css" href="../../../reset.css">
+  <link rel="stylesheet" type="text/css" href="../../../main.css">
+  <title>Invoice Index</title>
+</head>
 
-      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-        Merchants
-      </div>
-
-      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-        Items
-      </div>
-
-      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-        Invoices
-      </div>
-    </div>
-
+<body>
+  <%= erb :navigation %>
     <div class="header">
-      <h1 class ="header-title">Invoices</h1>
-      <button type="button" class="btn btn-secondary button-shadow">Create Invoice</button>
+        <a href='/invoices-dashboard' class="dashboard-display">Dashboard</a>
+        <h1 class ="header-title">Invoices</h1>
+        <a href='/invoices-dashboard'></a>
     </div>
 
-    <div class="invoice-display">
-      <li class="invoice-id">Invoice ID</li>
-      <li class="status-id">Status</li>
-      <br/>
+      <div class="invoice-display">
+        <li> <h3>Invoice ID:</h3> </li>
+        <li> <h3>Status:</h3> </li>
+      </div>
 
       <% @invoices.each do |invoice| %>
-        <li class="invoice-id"><a href="/invoices/<%= invoice.id %>"><%= invoice.id %></a></li>
-        <li class="status-id"> <%= invoice.status %> </li>
-        <a href="/invoices/<%= invoice.id %>/edit">Edit</a>
-          <form action="/invoices/<%= invoice.id %>" method="POST">
-            <input type="hidden" name="_method" value="DELETE">
-            <input type="submit" value="delete"/>
-          </form>
-        <br/>
+      <div class="invoice-display">
+
+        <li><a href="/invoices/<%= invoice.id %>"><%= invoice.id %></a></li>
+        <li> <%= invoice.status %> </li>
+
+        <form action='invoices/<%= invoice.id %>' method= "POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="delete" class="delete-button"/>
+        </form>
+
+        <form action='invoices/<%=invoice.id %>/edit' method= "GET">
+          <h1><input type="hidden" name="_method" value="EDIT"></h1>
+          <input type="submit" value="edit" class="edit-button"/>
+        </form>
+      </div>
+
       <% end %>
     </div>
-
-</body>
+  </body>
 </html>

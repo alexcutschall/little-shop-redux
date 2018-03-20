@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    >
+    <link rel="stylesheet" type="text/css" href="../../../reset.css">
     <link rel="stylesheet" type="text/css" href="../../../main.css">
-
-    <meta charset="utf-8">
-    <title>Invoices</title>
+    <title>Invoice: <%= @invoice.id %> - <%= @invoice.status %></title>
   </head>
+
   <body>
-    <div class="row nav">
-      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-        <h1>Little Shop</h1>
+    <%= erb :navigation %>
+      <div class="header">
+          <a href='/invoices-dashboard' class="dashboard-display">Dashboard</a>
+          <h1 class ="header-title">Invoice: <%= @invoice.id %> - <%= @invoice.status.capitalize %></h1>
+          <div class="invoice-alignment">
+
+            <form action='/<%=@invoice.id %>/edit' method= "GET">
+              <input type="submit" value="edit" class="edit-button-center"/>
+            </form>
+
+            <form action='/<%= @invoice.id %>' method= "POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="submit" value="delete" class="delete-button-center"/>
+            </form>
+          </div>
+          <a href='/invoices-dashboard'></a>
       </div>
 
-      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-        Merchants
-      </div>
+      <h1> <%= @invoice.merchant.name %> </h1>
 
-      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-        Items
-      </div>
+        <table>
+          <tr>
+            <th>Item ID</th>
+            <th>Item Title</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+          </tr>
+          <% @invoice.invoice_items.each do |invoice_item| %>
+          <tr>
+            <td><a href="/items/<%= invoice_item.item_id %>"> <%= invoice_item.item_id %></a></td>
+            <td> <%= invoice_item.find_title(invoice_item.item_id) %> </td>
+            <td> <%= invoice_item.quantity %> </td>
+            <td> <%= invoice_item.unit_price %> </td>
+          </tr>
+          <% end %>
+        </table>
 
-      <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-        Invoices
-      </div>
-    </div>
-
-    <div class="header">
-      <h1 class ="header-title">Invoices</h1>
-      <button type="button" class="btn btn-secondary button-shadow">Create Invoice</button>
-    </div>
-
-    <a href="/invoices">Dashboard</a>
-
-    <div class="invoice-display">
-      <% invoice = Invoice.find(params[:id]) %>
-      <li> Invoice ID: <%= invoice[:id] %> </li>
-      <li> Merchant ID: <%= invoice[:merchant_id] %> </li>
-      <li> Status: <%= invoice[:status] %> </li>
-      <a href="/invoices/<%= invoice.id %>/edit">Edit</a>
-        <form action="/invoices/<%= invoice.id %>" method="POST">
-          <input type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="delete"/>
-        </form>
-    </div>
-
-</body>
+    <form action="/invoices/<%= @invoice.id %>" method="post">
+      <input type="hidden" name="_method" value="PUT" />
+      <textarea name='invoice[status]'><%= @invoice.status %></textarea><br/>
+      <input type='submit'/>
+    </form>
+  </body>
 </html>

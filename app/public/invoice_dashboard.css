@@ -1,0 +1,47 @@
+body {
+  background: linear-gradient(to top, hotpink, white)
+}
+
+.header {
+  text-align: center;
+  background-color: #f0f0f5;
+  margin: 1px 5px;
+  border: solid;
+  padding: 20px;
+}
+
+.header-title {
+  font-size: 40px;
+}
+
+.invoice-dashboard-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-box {
+  align-items: center;
+  padding: 20px;
+  border: 3px black solid;
+  margin: 25px;
+}
+
+.info-box h1 {
+  font-weight: bold;
+  font-size: 25px;
+  padding: 5px;
+}
+
+.info-box li {
+  list-style: none;
+  padding: 10px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}

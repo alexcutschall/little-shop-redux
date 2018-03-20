@@ -6,7 +6,7 @@ class Item < ActiveRecord::Base
   validates :image, presence: true
   validates :merchant_id, presence: true
   has_many :invoice_items
-  has_many :invoicesitem
+  has_many :invoices, through: :invoice_items
 
   def self.average_price
     (average(:price) / 100).to_f.round(2)
