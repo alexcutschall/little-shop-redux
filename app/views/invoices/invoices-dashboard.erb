@@ -12,20 +12,48 @@
       <h1 class ="header-title">Invoice Dashboard</h1>
   </div>
 
-  <div class="invoice-dashboard-container">
+  <section class="invoice-dashboard-container">
     <section class="info-box">
       <h1>Status Percentages</h1>
-      <% Invoice.unique_statuses.each do |status| %>
-        <p> <%= status %> </p>
-      <% end %>
+      <section class="left">
+        <% Invoice.unique_statuses.each do |status| %>
+          <li> <%= status.capitalize %> </li>
+        <% end %>
+      </section>
+      <section class="right">
+        <% Invoice.status_percentages.each do |percentage| %>
+          <li> <%= percentage %>% </li>
+        <% end %>
+      </section>
     </section>
 
     <section class="info-box">
       <h1>Unit Prices</h1>
-      <% Invoice.unique_statuses.each do |status| %>
-        <p> <%= status %> </p>
-      <% end %>
+      <section class="left">
+        <% Invoice.unique_statuses.each do |status| %>
+          <li> <%= status.capitalize %> </li>
+        <% end %>
+      </section>
+      <section class="right">
+        <% Invoice.status_percentages.each do |percentage| %>
+          <li> <%= percentage %>% </li>
+        <% end %>
+      </section>
     </section>
-  </div>
+
+    <section class="info-box">
+      <h1>Quantity</h1>
+      <section class="left">
+        <% Invoice.unique_statuses.each do |status| %>
+          <li> <%= status.capitalize %> </li>
+        <% end %>
+      </section>
+      <section class="right">
+        <% Invoice.status_percentages.each do |percentage| %>
+          <li> <%= percentage %>% </li>
+        <% end %>
+      </section>
+    </section>
+  </section>
 
 </body>

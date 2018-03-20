@@ -12,7 +12,7 @@ class Invoice < ActiveRecord::Base
   end
 
   def self.status_percentages
-    Invoice.unique_statuses.each do |status|
+    Invoice.unique_statuses.map do |status|
       decimal = Invoice.where(status: status).count.to_f / Invoice.all.count
       (decimal * 100).round(1)
     end
