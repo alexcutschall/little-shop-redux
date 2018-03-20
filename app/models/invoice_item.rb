@@ -12,7 +12,6 @@ class InvoiceItem < ActiveRecord::Base
   end
 
   def find_title(id)
-    item = Item.find(id)
-    item.title
-  end
+    Item.find(id).title
+  end 
 end
