@@ -112,6 +112,7 @@ a.button {
   display: flex;
   flex-direction: column;
   text-align: center;
+  text-decoration: underline;
   height: 200px;
   margin: 10px;
   width: 200px;

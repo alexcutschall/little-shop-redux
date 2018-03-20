@@ -33,8 +33,8 @@
       <tr>
         <td><a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></td>
         <td><%= merchant.items.count %></td>
-        <td><%= merchant.average_price %></td>
-        <td><%= merchant.total_price %></td>
+        <td><%= "$" + merchant.average_price.to_s %></td>
+        <td><%= "$" + merchant.total_price.to_s %></td>
       </tr>
     </div>
     <% end %>
