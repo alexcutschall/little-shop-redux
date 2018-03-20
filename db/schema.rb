@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20180318211405) do
   end
 
   create_table "merchants", force: :cascade do |t|
-    t.integer "merchant_id"
     t.text "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
