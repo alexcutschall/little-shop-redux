@@ -50,6 +50,7 @@ RSpec.describe Item, type: :feature do
 
         expect(page).to have_content('Merch name')
       end
+    end
     context 'New page' do
       it 'says new on top of page' do
           visit '/items/new'
@@ -87,11 +88,58 @@ RSpec.describe Item, type: :feature do
     end
     context 'Edit page' do
       it 'shows edit item title on top of page' do
-          Item.create(title: 'Thing', description: 'does stuff', price: 12, image: 'URL')
-          visit '/items/1/edit'
+        Item.create(title: 'Thing', description: 'does stuff', price: 12, image: 'URL', merchant_id: 1)
 
-          expect(page).to have_content('Edit Thing')
-        end
+        visit '/items/1/edit'
+
+        expect(page).to have_content('Edit Thing')
+      end
+    end
+    context 'Dashboard' do
+      it 'shows the total count of items' do
+        Item.create(title: 'Thing', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'Another thing', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'Something else', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'Anything', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'Stuff', description: 'x', price: 12, image: 'x')
+        visit '/items-dashboard'
+
+        expect(page).to have_content('Total Item Count')
+        expect(page).to have_content('5')
+      end
+      it 'shows the average price of items' do
+        Item.create(title: 'Thing', description: 'x', price: 8, image: 'x')
+        Item.create(title: 'Another thing', description: 'x', price: 9, image: 'x')
+        Item.create(title: 'Something else', description: 'x', price: 10, image: 'x')
+        Item.create(title: 'Anything', description: 'x', price: 11, image: 'x')
+        Item.create(title: 'Stuff', description: 'x', price: 12, image: 'x')
+        visit '/items-dashboard'
+
+        expect(page).to have_content('Avg Price Per Item')
+        expect(page).to have_content('10')
+      end
+      it 'shows the newest item' do
+        Item.create(title: 'Thing', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'Another thing', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'Something else', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'Anything', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'Stuff', description: 'x', price: 12, image: 'x')
+        visit '/items-dashboard'
+
+        expect(page).to have_content('Item by Age')
+        expect(page).to have_content('Newest')
+        expect(page).to have_content('Stuff')
+      end
+      it 'shows the oldest item' do
+        Item.create(title: 'Thing', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'Another thing', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'Something else', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'Anything', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'Stuff', description: 'x', price: 12, image: 'x')
+        visit '/items-dashboard'
+
+        expect(page).to have_content('Oldest')
+        expect(page).to have_content('Thing')
       end
     end
   end

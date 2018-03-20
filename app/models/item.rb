@@ -11,4 +11,16 @@ class Item < ActiveRecord::Base
   def self.average_price
     (average(:price) / 100).to_f.round(2)
   end
+
+  def self.total_count
+    Item.all.count
+  end
+
+  def self.newest
+    Item.order(:created_at).first.title
+  end
+
+  def self.oldest
+    Item.order(:created_at).last.title
+  end
 end

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="../../../reset.css">
+    <link rel="stylesheet" type="text/css" href="../../../merchant_dashboard.css">
+    <title>Item Dashboard</title>
+  </head>
+
+  <body>
+    <%= erb :navigation %>
+    <header>
+    </header>
+    <main>
+      <div>
+        <h1>Total Item Count</h1>
+        <%= @items.total_count %>
+      </div>
+      <div>
+        <h1>Avg Price Per Item</h1>
+        <%= @items.average_price %>
+      </div>
+      <div>
+        <h1>Item by Age</h1>
+        <p>Newest</p>
+        <%= @items.newest %>
+        <p>Oldest</p>
+        <%= @items.oldest %>
+      </div>
+    </main>
+  </body>
+</html>

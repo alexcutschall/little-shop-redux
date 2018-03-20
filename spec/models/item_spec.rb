@@ -49,4 +49,44 @@ RSpec.describe Item do
       expect(item).to be_invalid
     end
   end
+  context 'Class methods' do
+
+    it '.total_count' do
+      Item.create(title: 'Thing', description: 'x', price: 12, image: 'x')
+      Item.create(title: 'Another thing', description: 'x', price: 12, image: 'x')
+      Item.create(title: 'Something else', description: 'x', price: 12, image: 'x')
+      Item.create(title: 'Anything', description: 'x', price: 12, image: 'x')
+      Item.create(title: 'Stuff', description: 'x', price: 12, image: 'x')
+
+      expect(Item.total_count).to eq(5)
+    end
+    it '.average_price' do
+      Item.create(title: 'Thing', description: 'x', price: 8, image: 'x')
+      Item.create(title: 'Another thing', description: 'x', price: 9, image: 'x')
+      Item.create(title: 'Something else', description: 'x', price: 10, image: 'x')
+      Item.create(title: 'Anything', description: 'x', price: 11, image: 'x')
+      Item.create(title: 'Stuff', description: 'x', price: 12, image: 'x')
+
+      expect(Item.average_price).to eql(10)
+    end
+    it '.newest' do
+      Item.create(title: 'Thing', description: 'x', price: 12, image: 'x')
+      Item.create(title: 'Another thing', description: 'x', price: 12, image: 'x')
+      Item.create(title: 'Something else', description: 'x', price: 12, image: 'x')
+      Item.create(title: 'Anything', description: 'x', price: 12, image: 'x')
+      Item.create(title: 'Stuff', description: 'x', price: 12, image: 'x')
+
+      expect(Item.newest).to eql('Stuff')
+    end
+    it '.oldest' do
+      Item.create(title: 'Thing', description: 'x', price: 12, image: 'x')
+      Item.create(title: 'Another thing', description: 'x', price: 12, image: 'x')
+      Item.create(title: 'Something else', description: 'x', price: 12, image: 'x')
+      Item.create(title: 'Anything', description: 'x', price: 12, image: 'x')
+      Item.create(title: 'Stuff', description: 'x', price: 12, image: 'x')
+      visit '/items-dashboard'
+
+      expect(Item.oldest).to eql('Thing')
+    end
+  end
 end

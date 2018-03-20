@@ -8,7 +8,8 @@ class InvoiceItem < ActiveRecord::Base
   belongs_to :items
 
   def self.total_price
-    sum(:quantity)
+    binding.pry
+    sum(:quantity) * :unit_price
   end
 
   def find_title(id)
