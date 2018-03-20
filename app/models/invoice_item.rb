@@ -10,4 +10,9 @@ class InvoiceItem < ActiveRecord::Base
   def self.total_price
     sum(:quantity)
   end
+
+  def find_title(id)
+    item = Item.find(id)
+    item.title
+  end
 end

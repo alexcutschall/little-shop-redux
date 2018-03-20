@@ -11,7 +11,7 @@
     <%= erb :navigation %>
       <div class="header">
           <a href='/invoices-dashboard' class="dashboard-display">Dashboard</a>
-          <h1 class ="header-title">Invoice: <%= @invoice.id %> - <%= @invoice.status %></h1>
+          <h1 class ="header-title">Invoice: <%= @invoice.id %> - <%= @invoice.status.capitalize %></h1>
           <div class="invoice-alignment">
 
             <form action='/<%=@invoice.id %>/edit' method= "GET">
@@ -26,11 +26,25 @@
           <a href='/invoices-dashboard'></a>
       </div>
 
-      <p>Edit Invoice Status</p>
-      <li>Invoice ID:</li>
-      <li><p> <%= @invoice.id %> </p></li>
-      <li>Merchant ID:</li>
-      <li><p> <%= @invoice.merchant_id %> </p></li>
+      <h1> <%= @invoice.merchant.name %> </h1>
+
+        <table>
+          <tr>
+            <th>Item ID</th>
+            <th>Item Title</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+          </tr>
+          <% @invoice.invoice_items.each do |invoice_item| %>
+          <tr>
+            <td> <%= invoice_item.item_id %> </td>
+            <td> <%= invoice_item.find_title(invoice_item.item_id) %> </td>
+            <td> <%= invoice_item.quantity %> </td>
+            <td> <%= invoice_item.unit_price %> </td>
+          </tr>
+          <% end %>
+        </table>
+
     <form action="/invoices/<%= @invoice.id %>" method="post">
       <input type="hidden" name="_method" value="PUT" />
       <textarea name='invoice[status]'><%= @invoice.status %></textarea><br/>
