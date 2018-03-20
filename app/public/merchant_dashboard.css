@@ -2,16 +2,24 @@ body {
   background: linear-gradient(to top, hotpink, white);
 }
 
+th, td, tr {
+  padding: 20px;
+}
+
 .header {
   background-color: #f0f0f5;
   margin: 1px 5px;
   border: solid;
   padding: 20px;
+  text-align: center;
 }
-
 
 .header-title {
   font-size: 40px;
+}
+
+.column-headers {
+  text-decoration: underline;
 }
 
 .flex-container {
@@ -19,4 +27,5 @@ body {
   padding: 20px;
   border-bottom: 1px solid #ddd;
   text-align: center;
+  margin: auto;
 }

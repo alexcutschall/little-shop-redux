@@ -3,19 +3,19 @@ RSpec.describe Merchant do
     context "user can navigate around the website" do
       it "takes user to merchant page" do
         visit '/merchants'
-        click_link 'Merchants'
+        click_button 'Merchants'
 
         expect(page).to have_content("Merchants")
       end
       it "takes user to invoices page" do
         visit '/merchants'
-        click_link 'Invoices'
+        click_button 'Invoices'
 
         expect(page).to have_content("Invoices")
       end
       it "takes user to items page" do
         visit '/merchants'
-        click_link 'Items'
+        click_button 'Items'
 
         expect(page).to have_content("Items")
       end

@@ -24,33 +24,65 @@ a.button {
 
 .edit-button {
   background-color: yellow;
-  float: right;
+  text-align: center;
 }
 
 .delete-button {
   background-color: red;
-  float: right;
+  text-align:center;
 }
 
 #button a:hover {
     background-color: hotpink;
 }
 
+.button-position {
+  text-align: center;
+  margin-top: 5px;
+}
+
 /* HEADER STYLES */
 
-.merchant-display {
-  display: inline-block;
-  margin: auto;
-  width: 500px;
-  text-align: center;
-  border: solid;
-  padding: auto;
-  width: 50%;
+.merchant-section {
+  margin-left: 70px;
 }
 
 .merchant-header {
+  margin: 25px 10px 10px 10px;
+  text-align: center;
+}
+
+.merchant-display {
+  display: inline-block;
+  border: 2px solid;
+  height: 200px;
+  margin: 10px;
+  width: 200px;
+}
+
+.dashboard-section {
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard-link {
   float: left;
 }
+
+.dashboard-display {
+  border: 2px solid;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 200px;
+  margin: 10px;
+  width: 200px;
+}
+
+.dashboard-display a {
+  margin: 5px;
+}
+
 
 .flex-container {
   display: flex;
@@ -63,6 +95,7 @@ a.button {
 
 .header-title {
   font-size: 40px;
+  margin-right: 60px;
 }
 
 .header {
@@ -101,8 +134,9 @@ li.status {
 
 /* MERCHANT STYLES */
 
-.dashboard-display {
-  display: flex;
+
+.button:hover {
+  color: hotpink;
 }
 
 /* ITEM STYLES */

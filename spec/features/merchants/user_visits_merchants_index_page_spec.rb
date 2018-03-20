@@ -12,12 +12,6 @@ RSpec.describe Merchant do
 
         expect(page).to have_content("Create a New Merchant!")
       end
-      it "can click on edit a merchant" do
-        visit "/merchants"
-        click_link "edit"
-
-        expect(page).to have_content("Merchant ID:")
-      end
     end
   end
 end

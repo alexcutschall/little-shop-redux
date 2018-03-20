@@ -9,14 +9,20 @@
     <h1 class ="header-title">Merchants Dashboard</h1>
 </div>
 <div class="header">
-  <h1>Merchant with the Most Items:</h1>
-  <a href="/merchants/<%= @merchants.most_items.id %>" class="most-items"><%= @merchants.most_items.name %></a>
+  <div class="most-items">
+    <h1>Merchant with the Most Items:</h1>
+    <br>
+    <a href="/merchants/<%= @merchants.most_items.id %>" class="most-items"><%= @merchants.most_items.name %></a>
+  </div>
   <br><br>
-  <h1>Merchant with the Highest Priced Item:</h1>
-  <a href="/merchants/<%= @merchants.highest_priced_item.id %>"><%= @merchants.highest_priced_item.name %></a>
+  <div class="expensive-items">
+    <h1>Merchant with the Highest Priced Item:</h1>
+    <br>
+    <a href="/merchants/<%= @merchants.highest_priced_item.id %>"><%= @merchants.highest_priced_item.name %></a>
+  </div>
 </div>
 <table class="flex-container">
-  <tr>
+  <tr class="column-headers">
     <th>Merchant Name</th>
     <th>Merchant Item Count</th>
     <th>Average Price of Item</th>
@@ -25,7 +31,7 @@
   <% @merchants.each do |merchant| %>
     <div>
       <tr>
-        <td><%= merchant.name %></td>
+        <td><a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></td>
         <td><%= merchant.items.count %></td>
         <td><%= merchant.average_price %></td>
         <td><%= merchant.total_price %></td>
