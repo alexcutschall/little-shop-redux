@@ -5,26 +5,28 @@
   <title>Merchant Index</title>
 </head>
 <body>
-<%= erb :navigation %>
-<div class="header">
-    <a href='/merchants-dashboard' class="dashboard-display">Dashboard</a>
-    <h1 class ="header-title">Merchants</h1>
-    <a href="/merchants/new" class="button">Create a New Merchant!</a>
-    <a href='/merchants-dashboard'></a>
-</div>
-    <% @merchants.each do |merchant| %>
-    <div class="merchant-header merchant-display">
-      <h3><a href='merchants/<%= merchant.id %>'><%= merchant.name %></a></h3>
-        <form action='merchants/<%=merchant.id %>/edit' method= "GET">
-          <h1><input type="hidden" name="_method" value="EDIT"></h1>
-          <input type="submit" value="edit" class="edit-button"/>
-        </form>
+  <%= erb :navigation %>
+  <div class="header">
+      <a href='/merchants-dashboard' class="dashboard-link">Dashboard</a>
+      <h1 class ="header-title">Merchants</h1>
+      <a href="/merchants/new" class="button">Create a New Merchant!</a>
+      <a href='/merchants-dashboard'></a>
+  </div>
+  <section class="merchant-section">
+      <% @merchants.each do |merchant| %>
+      <div class="merchant-display">
+        <h3 class="merchant-header"><a href='merchants/<%= merchant.id %>'><%= merchant.name %></a></h3>
+          <form action='merchants/<%=merchant.id %>/edit' method= "GET" class="button-position">
+            <h1><input type="hidden" name="_method" value="EDIT"></h1>
+            <input type="submit" value="edit" class="edit-button"/>
+          </form>
 
-        <form action='merchants/<%= merchant.id %>' method= "POST">
-          <input type="hidden" name="_method" value="DELETE">
-          <input type="submit" value="delete" class="delete-button"/>
-        </form>
-      </div>
-    <% end %>
+          <form action='merchants/<%= merchant.id %>' method= "POST" class="button-position">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="delete" class="delete-button"/>
+          </form>
+        </div>
+      <% end %>
+  </section>
 </body>
 </html>
