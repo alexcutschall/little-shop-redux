@@ -21,8 +21,19 @@
           <a href='/invoices-dashboard'></a>
       </div>
 
-      <section class="dropdown-box">
-        
+      <section class="invoice-edit-container">
+        <section class="edit-box">
+          <p>Merchant: <%= @invoice.merchant.name %></p>
+          <form action="/invoices/<%= @invoice.id %>" method="post">
+            <input type="hidden" name="_method" value="PUT">
+              <p>Status</p>
+              <select name="invoice[status]" value=""><% Invoice.unique_statuses.each do |status| %>
+                <option name="invoice[status]" value="<%= status %>"><%= status %></option>
+                <% end %>
+              </select>
+            <input class="submit-button" type="submit" value="Update Invoice">
+          </form>
+        </section>
       </section>
 
       <table>
