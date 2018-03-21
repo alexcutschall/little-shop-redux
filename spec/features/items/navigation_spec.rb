@@ -45,13 +45,13 @@ RSpec.describe Item, type: :feature do
         Merchant.create(name: 'x')
         visit 'items/1'
 
-        expect(page).to have_link('Edit')
+        expect(page).to have_button('edit')
       end
       it 'takes user from show to edit' do
         Item.create(title: 'x', description: 'x', price: 12, image: 'x', merchant_id: 1)
         Merchant.create(name: 'x')
         visit 'items/1'
-        click_link 'Edit'
+        click_button 'edit'
 
         expect(current_path).to eql('/items/1/edit')
       end
@@ -60,13 +60,13 @@ RSpec.describe Item, type: :feature do
         Merchant.create(name: 'x')
         visit 'items/1'
 
-        expect(page).to have_link('Delete')
+        expect(page).to have_button('delete')
       end
       it 'takes user from show to index after deleting' do
         Item.create(title: 'x', description: 'x', price: 12, image: 'x', merchant_id: 1)
         Merchant.create(name: 'x')
         visit 'items/1'
-        click_link 'Delete'
+        click_button 'delete'
 
         expect(current_path).to eql('/items')
       end
