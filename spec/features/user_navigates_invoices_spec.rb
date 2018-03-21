@@ -30,14 +30,14 @@ describe 'User Navigates Invoices Page' do
 
   context 'user visits specific invoice page' do
     it 'should have that invoice information' do
-      Invoice.create(merchant_id: 1, status: 'pending')
-      Invoice.create(merchant_id: 30, status: 'delivered')
+      i1 = Invoice.create(merchant_id: 1, status: 'pending')
+      i2 = Invoice.create(merchant_id: 30, status: 'delivered')
 
       visit '/invoices/2'
 
-      expect(page).to have_text('Invoice ID: 2')
-      expect(page).to have_text('Merchant ID: 30')
-      expect(page).to have_text('Status: delivered')
+      expect(page).to have_text(i2.id)
+      expect(page).to have_text(i2.merchant_id)
+      expect(page).to have_text(i2.status)
     end
 
     it 'should have edit and delete buttons' do
@@ -46,8 +46,8 @@ describe 'User Navigates Invoices Page' do
 
       visit '/invoices/2'
 
-      page.has_button?('Edit')
-      page.has_button?('Delete')
+      page.has_button?('edit')
+      page.has_button?('delete')
     end
 
     it 'should take you to an edit page when you click edit button' do
