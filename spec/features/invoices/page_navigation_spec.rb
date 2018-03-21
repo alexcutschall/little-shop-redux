@@ -10,17 +10,16 @@ describe Invoice, type: :feature do
         Invoice.create(merchant_id: 1, status: 'pending')
         Invoice.create(merchant_id: 30, status: 'delivered')
         Invoice.create(merchant_id: 35, status: 'shipped')
+        visit '/invoices'
 
         expect(page).to have_content('pending')
         expect(page).to have_content('delivered')
         expect(page).to have_content('shipped')
-        expect(page).to have_content('35')
       end
-      it 'should contain invoice links by id' do
+      it 'contains invoice links by id' do
         Invoice.create(merchant_id: 1, status: 'pending')
         Invoice.create(merchant_id: 30, status: 'delivered')
         Invoice.create(merchant_id: 35, status: 'shipped')
-
         visit '/invoices'
 
         expect(page).to have_text('pending')
@@ -37,14 +36,15 @@ describe Invoice, type: :feature do
       end
     end
     context 'Show page' do
-      it 'should have that invoice information' do
-        Invoice.create(merchant_id: 1, status: 'pending')
-        Invoice.create(merchant_id: 30, status: 'delivered')
+      it 'should have invoice information' do
+        Invoice.create(merchant_id: 30, status: 'pending')
+        Invoice.create(merchant_id: 1, status: 'delivered')
+        Merchant.create(name: 'First')
 
         visit '/invoices/2'
 
         expect(page).to have_text('Invoice ID: 2')
-        expect(page).to have_text('Merchant ID: 30')
+        expect(page).to have_text('Merchant ID: 1')
         expect(page).to have_text('Status: delivered')
       end
       it 'should have edit and delete buttons' do

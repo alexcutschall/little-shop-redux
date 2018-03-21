@@ -6,6 +6,9 @@ RSpec.describe Item, type: :feature do
         visit '/items/new'
         select('Vendor', :from => 'Merchants')
         fill_in('item[title]', with: 'New Things Title')
+        fill_in('item[description]', with: 'Desc')
+        fill_in('item[price]', with: 1200)
+        fill_in('item[image]', with:'http:www.fake.com/')
         click_button('Create Item')
 
         expect(page).to have_content('New Things Title')

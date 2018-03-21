@@ -52,7 +52,7 @@ RSpec.describe Item do
       Item.create(title: 'Anything', description: 'x', price: 12, image: 'x', merchant_id: 4)
       Item.create(title: 'Stuff', description: 'x', price: 12, image: 'x', merchant_id: 5)
 
-      expect(Item.newest).to eql('Stuff')
+      expect(Item.newest.title).to eql('Stuff')
     end
     it '.oldest' do
       Item.create(title: 'Thing', description: 'x', price: 12, image: 'x', merchant_id: 1)
@@ -62,7 +62,7 @@ RSpec.describe Item do
       Item.create(title: 'Stuff', description: 'x', price: 12, image: 'x', merchant_id: 5)
       visit '/items-dashboard'
 
-      expect(Item.oldest).to eql('Thing')
+      expect(Item.oldest.title).to eql('Thing')
     end
   end
 end
