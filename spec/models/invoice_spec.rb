@@ -14,16 +14,16 @@ RSpec.describe 'Invoice model' do
   context 'Class methods' do
     it '.unique_statuses' do
       Invoice.create!(merchant_id: 1, status: 'paid')
-      Invoice.create!(merchant_id: 1, status: 'paid')
-      Invoice.create!(merchant_id: 1, status: 'paid')
+      Invoice.create!(merchant_id: 1, status: 'shipped')
+      Invoice.create!(merchant_id: 1, status: 'pending')
       Invoice.create!(merchant_id: 1, status: 'paid')
 
       expect(Invoice.unique_statuses).to eql('asdf')
     end
     it '.status_percentages' do
+      Invoice.create!(merchant_id: 1, status: 'shipped')
       Invoice.create!(merchant_id: 1, status: 'paid')
-      Invoice.create!(merchant_id: 1, status: 'paid')
-      Invoice.create!(merchant_id: 1, status: 'paid')
+      Invoice.create!(merchant_id: 1, status: 'pending')
       Invoice.create!(merchant_id: 1, status: 'paid')
 
       expect(Invoice.unique_statuses).to eql('asdf')

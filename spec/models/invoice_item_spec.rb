@@ -23,12 +23,12 @@ RSpec.describe 'InvoiceItem model' do
   end
   context 'Class methods' do
     it '.total_price' do
-      InvoiceItem.create(item_id: 2, invoice_id: 5 , quantity: 6, unit_price: 10)
-      InvoiceItem.create(item_id: 2, invoice_id: 9, quantity: 6, unit_price: 10)
-      InvoiceItem.create(item_id: 1, invoice_id: 5, quantity: 6, unit_price: 10)
-      InvoiceItem.create(item_id: 2, invoice_id: 90, quantity: 6, unit_price: 10)
+      InvoiceItem.create(item_id: 2, invoice_id: 5 , quantity: 6, unit_price: 1000)
+      InvoiceItem.create(item_id: 2, invoice_id: 9, quantity: 6, unit_price: 1000)
+      InvoiceItem.create(item_id: 1, invoice_id: 5, quantity: 6, unit_price: 1000)
+      InvoiceItem.create(item_id: 2, invoice_id: 90, quantity: 6, unit_price: 1000)
 
-      expect(InvoiceItem.total_price).to eq(240)
+      expect(InvoiceItem.total_price).to eq(240.0)
     end
   end
   context 'Instance methods' do
