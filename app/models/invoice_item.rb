@@ -14,4 +14,20 @@ class InvoiceItem < ActiveRecord::Base
   def find_title(id)
     Item.find(id).title
   end
+
+  def self.highest_unit_price
+    order('unit_price DESC').first.invoice_id
+  end
+
+  def self.lowest_unit_price
+    order('unit_price').first.invoice_id
+  end
+
+  def self.largest_quantity
+    order('quantity DESC').first.invoice_id
+  end
+
+  def self.smallest_quantity
+    order('quantity').first.invoice_id
+  end
 end

@@ -11,30 +11,46 @@
     <%= erb :navigation %>
       <div class="header">
           <a href='/invoices-dashboard' class="dashboard-display">Dashboard</a>
-          <h1 class ="header-title">Invoice: <%= @invoice.id %> - <%= @invoice.status %></h1>
+          <h1 class ="header-title">Invoice: <%= @invoice.id %> - <%= @invoice.status.capitalize %></h1>
           <h1>
             <form action='invoices/<%= @invoice.id %>' method= "POST">
               <input type="hidden" name="_method" value="DELETE">
               <input type="submit" value="delete" class="delete-button"/>
             </form>
-
-            <form action='invoices/<%=@invoice.id %>/edit' method= "GET">
-              <h1><input type="hidden" name="_method" value="EDIT"></h1>
-              <input type="submit" value="edit" class="edit-button"/>
-            </form>
           </h1>
           <a href='/invoices-dashboard'></a>
       </div>
 
-      <p>Edit Invoice Status</p>
-      <li>Invoice ID:</li>
-      <li><p> <%= @invoice.id %> </p></li>
-      <li>Merchant ID:</li>
-      <li><p> <%= @invoice.merchant_id %> </p></li>
-    <form action="/invoices/<%= @invoice.id %>" method="post">
-      <input type="hidden" name="_method" value="PUT" />
-      <textarea name='invoice[status]'><%= @invoice.status %></textarea><br/>
-      <input type='submit'/>
-    </form>
+      <section class="invoice-edit-container">
+        <section class="edit-box">
+          <p>Merchant: <%= @invoice.merchant.name %></p>
+          <form action="/invoices/<%= @invoice.id %>" method="post">
+            <input type="hidden" name="_method" value="PUT">
+              <p>Status</p>
+              <select name="invoice[status]" value=""><% Invoice.unique_statuses.each do |status| %>
+                <option name="invoice[status]" value="<%= status %>"><%= status %></option>
+                <% end %>
+              </select>
+            <input class="submit-button" type="submit" value="Update Invoice">
+          </form>
+        </section>
+      </section>
+
+      <table>
+        <tr>
+          <th>Item ID</th>
+          <th>Item Title</th>
+          <th>Quantity</th>
+          <th>Unit Price</th>
+        </tr>
+        <% @invoice.invoice_items.each do |invoice_item| %>
+        <tr>
+          <td><a href="/items/<%= invoice_item.item_id %>"> <%= invoice_item.item_id %></a></td>
+          <td> <%= invoice_item.find_title(invoice_item.item_id) %> </td>
+          <td> <%= invoice_item.quantity %> </td>
+          <td> $<%= (invoice_item.unit_price / 100.0).round(2) %> </td>
+        </tr>
+        <% end %>
+      </table>
   </body>
 </html>

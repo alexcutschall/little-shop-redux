@@ -33,9 +33,24 @@ body {
   padding: 5px;
 }
 
+.info-box h3 {
+  text-decoration: underline;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.info-box h4 {
+  text-decoration: none;
+  padding: 5px;
+}
+
 .info-box li {
   list-style: none;
   padding: 10px;
+}
+
+.info-box a:hover {
+  background-color: hotpink;  
 }
 
 .left {
