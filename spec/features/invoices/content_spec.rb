@@ -19,16 +19,17 @@ describe Invoice do
     end
     context 'Show page' do
       it 'should have that invoice information' do
-        Invoice.create(merchant_id: 45, status: 'pending')
+        m1 = Merchant.create(id: 45, name: 'DBC')
+        m1.invoices.create(status: 'pending')
         visit '/invoices/1'
 
-        expect(page).to have_text('1')
-        expect(page).to have_text('45')
-        expect(page).to have_text('pending')
+        expect(page).to have_text('DBC')
+        expect(page).to have_text('Pending')
       end
 
       it 'should have edit and delete buttons' do
-        Invoice.create(merchant_id: 45, status: 'pending')
+        m1 = Merchant.create(id: 45, name: 'DBC')
+        m1.invoices.create(status: 'pending')
         visit '/invoices/1'
 
         page.has_button?('edit')

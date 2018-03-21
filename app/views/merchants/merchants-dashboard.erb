@@ -12,11 +12,11 @@
   <div class="most-items">
     <h1>Merchant with the Most Items:</h1>
     <br>
-    <a href="/merchants/<%= @merchants.most_items.id %>" class="most-items"><%= @merchants.most_items.name %></a>
+    <a href="/merchants/<%= @merchants.most_items.id %>" class="most-items"><%= @merchants.most_items.name.capitalize %></a>
   </div>
   <br><br>
   <div class="expensive-items">
-    <h1>Merchant with the Highest Priced Item:</h1>
+    <h1><strong>Merchant with the Highest Priced Item:</strong></h1>
     <br>
     <a href="/merchants/<%= @merchants.highest_priced_item.id %>"><%= @merchants.highest_priced_item.name %></a>
   </div>
@@ -33,8 +33,8 @@
       <tr>
         <td><a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></td>
         <td><%= merchant.items.count %></td>
-        <td><%= merchant.average_price %></td>
-        <td><%= merchant.total_price %></td>
+        <td><%= "$" + merchant.average_price.to_s %></td>
+        <td><%= "$" + merchant.total_price.to_s %></td>
       </tr>
     </div>
     <% end %>

@@ -18,7 +18,7 @@ RSpec.describe 'Invoice model' do
       Invoice.create!(merchant_id: 1, status: 'pending')
       Invoice.create!(merchant_id: 1, status: 'paid')
 
-      expect(Invoice.unique_statuses).to eql('asdf')
+      expect(Invoice.unique_statuses).to eql(['pending', 'paid', 'shipped'])
     end
     it '.status_percentages' do
       Invoice.create!(merchant_id: 1, status: 'shipped')
@@ -26,7 +26,7 @@ RSpec.describe 'Invoice model' do
       Invoice.create!(merchant_id: 1, status: 'pending')
       Invoice.create!(merchant_id: 1, status: 'paid')
 
-      expect(Invoice.unique_statuses).to eql('asdf')
+      expect(Invoice.status_percentages).to eql([25.0, 50.0, 25.0])
     end
   end
 end

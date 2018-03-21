@@ -1,3 +1,6 @@
+h1 {
+  font-size: 30px;
+}
 img {
   height: 75px;
   width: 75px;
@@ -28,9 +31,19 @@ li {
   margin: 10px;
 }
 
+.item-display {
+  display: flex;
+  flex-direction: column;
+  max-width: 70vw;;
+  margin: auto;
+
+}
+
+
 .edit-button {
   background-color: yellow;
   text-align: center;
+  margin-top: 10px;
 }
 
 .delete-button {

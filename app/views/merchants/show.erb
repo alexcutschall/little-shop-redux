@@ -20,14 +20,16 @@
           <input type="submit" value="delete" class="delete-button"/>
         </form>
   </div>
-<p style="text-align:center;">Merchant Items:<p>
-  <% @merchant.items.each do |item| %>
-  <section class="merchant-display">
-    <ul>
-      <li><img src="<%= item.image %>"></li>
-      <li><%= item.title %></li>
-      <li><%= item.description %></li>
-      <li><%= "$" + (item.price / 100).to_s %></li>
-  </section>
-  <% end %>
+<h2 style="text-align:center;">Merchant Items:</h2>
+<section class="item-display">
+    <% @merchant.items.each do |item| %>
+    <section class="merchant-display">
+      <ul>
+        <li><img src="<%= item.image %>"></li>
+        <li><a href="/items/<%= item.id %>"><%= item.title %></a></li>
+        <li><%= item.description %></li>
+        <li><%= "$" + (item.price / 100).to_s %></li>
+    </section>
+    <% end %>
+</section>
 </body>
