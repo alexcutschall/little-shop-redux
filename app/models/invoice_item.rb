@@ -8,7 +8,8 @@ class InvoiceItem < ActiveRecord::Base
   belongs_to :items
 
   def self.total_price
-    sum(:quantity)
+    total = InvoiceItem.all.map { |item| item.quantity * item.unit_price }
+    (total.sum / 100).round(2)
   end
 
   def find_title(id)
