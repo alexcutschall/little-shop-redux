@@ -10,7 +10,7 @@
   <body>
     <%= erb :navigation %>
       <div class="header">
-          <a href='/invoices-dashboard' class="dashboard-display">Dashboard</a>
+          <a href='/invoices-dashboard' class="dashboard-link">Dashboard</a>
           <h1 class ="header-title">Invoice: <%= @invoice.id %> - <%= @invoice.status.capitalize %></h1>
           <h1>
             <form action='invoices/<%= @invoice.id %>' method= "POST">
