@@ -1,4 +1,4 @@
-RSpec.describe Item do
+RSpec.describe 'Item model' do
   context 'Validate fields' do
     it 'is invalid to not have a title' do
       item = Item.new(title: '', description: 'x', price: 12, image: 'x', merchant_id: 9)
