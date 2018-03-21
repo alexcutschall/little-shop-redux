@@ -4,14 +4,15 @@ RSpec.describe Item, type: :feature do
       it 'has correct title' do
         Merchant.create(name: 'Vendor')
         visit '/items/new'
-        select('Vendor', :from => 'Merchants')
+        select('Vendor', from: 'Merchants')
         fill_in('item[title]', with: 'New Things Title')
         fill_in('item[description]', with: 'Desc')
         fill_in('item[price]', with: 1200)
-        fill_in('item[image]', with:'http:www.fake.com/')
+        fill_in('item[image]', with: 'http:www.fake.com/')
         click_button('Create Item')
 
-        expect(page).to have_content('New Things Title')
+        expect(current_path).to eq('/items')
+        expect(page).to have_link('New Things Title')
       end
     end
   end
