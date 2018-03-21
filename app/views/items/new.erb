@@ -15,8 +15,9 @@
 
     <form action="/items" method="post">
       <p>Merchant</p>
-      <select name="Merchants"><% @merchants.each do |merchant| %>
-        <option value="merchant"><%= merchant.name %></option>
+      <select name="item[merchant_id]">
+        <% @merchants.each do |merchant| %>
+        <option value="<%= merchant.id %>"><%= merchant.name %></option>
         <% end %>
       </select>
       <p>Title</p>

@@ -11,8 +11,15 @@
 
     <header class="header">
       <h1 class="header-title"><%= @item.title %></h1>
-      <a href='/items/<%= @item.id %>/edit'>Edit</a>
-      <a href='/items'>Delete</a>
+      <form action='<%=@item.id %>/edit' method= "GET">
+        <h1><input type="hidden" name="_method" value="EDIT"></h1>
+        <input type="submit" value="edit" class="edit-button"/>
+      </form>
+
+      <form action='<%= @item.id %>' method= "POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="delete" class="delete-button"/>
+      </form>
     </header>
 
     <ul>
