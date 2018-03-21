@@ -61,11 +61,13 @@ class LittleShopApp < Sinatra::Base
 
   put '/invoices/:id' do |id|
     invoice = Invoice.update(id.to_i, params[:invoice])
-    redirect "/invoices/#{invoice.id}"
+    redirect '/invoices'
   end
 
   delete '/invoices/:id' do |id|
     Invoice.destroy(id.to_i)
+    invoice_items = InvoiceItem.where(invoice_id: id)
+    invoice_items.each(&:destroy)
     redirect '/invoices'
   end
 
@@ -94,6 +96,11 @@ class LittleShopApp < Sinatra::Base
     @item = Item.find(params[:id])
     @merchants = Merchant.all
     erb :'items/edit'
+  end
+
+  get '/items-dashboard' do
+    @items = Item.all
+    erb :'items/dashboard'
   end
 
   post '/items' do

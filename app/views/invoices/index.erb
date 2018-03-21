@@ -24,7 +24,7 @@
       <div class="invoice-display">
 
         <li><a href="/invoices/<%= invoice.id %>"><%= invoice.id %></a></li>
-        <li> <%= invoice.status %> </li>
+        <li><a href="/invoices/<%= invoice.id %>"><%= invoice.status %></a> </li>
 
         <form action='invoices/<%= invoice.id %>' method= "POST" class="invoice-edit-button">
           <input type="hidden" name="_method" value="DELETE">
