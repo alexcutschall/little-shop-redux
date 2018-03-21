@@ -10,6 +10,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 90%;
+  margin: 50px;
 }
 
 tr {
@@ -122,6 +123,11 @@ a.button {
   margin: 5px;
 }
 
+.big-merchant-name {
+  font-size: 50px;
+  text-decoration: underline;
+  text-align: center;
+}
 
 .flex-container {
   display: flex;
@@ -167,6 +173,7 @@ a.button {
   background-color: hotpink;
 }
 
+
 .invoice-edit-button {
   float: right;
 }
@@ -177,7 +184,6 @@ a.button {
 
 
 /* MERCHANT STYLES */
-
 
 .button:hover {
   color: hotpink;
@@ -197,4 +203,23 @@ a.button {
 
 .link {
   text-decoration-line: underline;
+}
+
+.invoice-edit-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-box {
+  align-items: center;
+  padding: 20px;
+  border: 3px black solid;
+  background-color: white;
+  margin: 5px 0px 0px 0px;
+}
+
+.edit-box p {
+  padding: 10px;
 }
