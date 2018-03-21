@@ -6,10 +6,11 @@
 <body>
   <%= erb :navigation %>
   <div class="header">
-      <h1 class ="header-title">Create a New Merchant!</h1>
-
+    <h1 class ="header-title">Create a New Merchant!</h1>
     <form action="/merchants" method="post">
-      <input type="text" name='merchant[name]' placeholer="Enter Name...">
+      <input type="text" name='merchant[name]' placeholder="Enter Merchant Name">
+      <br>
+      <a href="/merchants"><button type="button">Cancel</button></a>
       <input class="submit-button" type="submit" value="Create">
     </form>
   </div>
