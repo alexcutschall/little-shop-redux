@@ -37,23 +37,23 @@ describe Invoice, type: :feature do
     end
     context 'Show page' do
       it 'should have invoice information' do
-        Invoice.create(merchant_id: 30, status: 'pending')
-        Invoice.create(merchant_id: 1, status: 'delivered')
+        i1 = Invoice.create(merchant_id: 30, status: 'pending')
+        i2 = Invoice.create(merchant_id: 1, status: 'delivered')
         Merchant.create(name: 'First')
 
         visit '/invoices/2'
 
-        expect(page).to have_text('Invoice ID: 2')
-        expect(page).to have_text('Merchant ID: 1')
-        expect(page).to have_text('Status: delivered')
+        expect(page).to have_text('Invoice: 2')
+        expect(page).to have_text(i2.merchant.name)
+        expect(page).to have_text(i2.status.capitalize)
       end
       it 'should have edit and delete buttons' do
         Invoice.create(merchant_id: 1, status: 'pending')
         Invoice.create(merchant_id: 30, status: 'delivered')
         visit '/invoices/2'
 
-        page.has_button?('Edit')
-        page.has_button?('Delete')
+        page.has_button?('edit')
+        page.has_button?('delete')
       end
       it 'should take you to an edit page when you click edit button' do
       end
