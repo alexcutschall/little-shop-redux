@@ -1,5 +1,6 @@
 body {
-  background: linear-gradient(to top, hotpink, white)
+  background: linear-gradient(to top, hotpink, white);
+  /* font-family: 'Raleway', sans-serif; */
 }
 
 table {
@@ -90,6 +91,7 @@ a.button {
 }
 
 .merchant-display {
+  background: linear-gradient(to top, lightgreen, white);
   display: inline-block;
   border: 2px solid;
   height: 200px;
@@ -111,6 +113,7 @@ a.button {
   display: flex;
   flex-direction: column;
   text-align: center;
+  text-decoration: underline;
   height: 200px;
   margin: 10px;
   width: 200px;
@@ -169,6 +172,16 @@ a.button {
 .invoice-display a:hover {
   background-color: hotpink;
 }
+
+
+.invoice-edit-button {
+  float: right;
+}
+
+.invoice-delete-button {
+  float: right;
+}
+
 
 /* MERCHANT STYLES */
 

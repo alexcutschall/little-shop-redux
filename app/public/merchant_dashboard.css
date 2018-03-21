@@ -23,9 +23,9 @@ th, td, tr {
 }
 
 .flex-container {
+  background: linear-gradient(to bottom, lightgreen, white);
   border: solid;
   padding: 20px;
-  border-bottom: 1px solid #ddd;
   text-align: center;
   margin: auto;
 }

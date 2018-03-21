@@ -15,7 +15,7 @@
   <section class="merchant-section">
       <% @merchants.each do |merchant| %>
       <div class="merchant-display">
-        <h3 class="merchant-header"><a href='merchants/<%= merchant.id %>'><%= merchant.name %></a></h3>
+        <h3 class="merchant-header"><a href='merchants/<%= merchant.id %>'><%= merchant.name.capitalize %></a></h3>
           <form action='merchants/<%=merchant.id %>/edit' method= "GET" class="button-position">
             <h1><input type="hidden" name="_method" value="EDIT"></h1>
             <input type="submit" value="edit" class="edit-button"/>
@@ -25,7 +25,7 @@
             <input type="hidden" name="_method" value="DELETE">
             <input type="submit" value="delete" class="delete-button"/>
           </form>
-        </div>
+      </div>
       <% end %>
   </section>
 </body>
