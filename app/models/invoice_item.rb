@@ -7,13 +7,13 @@ class InvoiceItem < ActiveRecord::Base
   belongs_to :invoices
   belongs_to :items
 
+  def find_title(id)
+    Item.find(id).title
+  end
+
   def self.total_price
     total = InvoiceItem.all.map { |item| item.quantity * item.unit_price }
     (total.sum / 100).round(2)
-  end
-
-  def find_title(id)
-    Item.find(id).title
   end
 
   def self.highest_unit_price
