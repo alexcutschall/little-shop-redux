@@ -34,7 +34,17 @@ describe Invoice, type: :feature do
 
         expect(current_path).to eq('/invoices/1/edit')
       end
-      it 'takes user to confirmation page after pushing delete' do
+
+      it 'should delete an item when you click the delete button' do
+        Invoice.create(merchant_id: 5555, status: 'pending')
+
+        visit '/invoices'
+
+        expect(page).to have_text('pending')
+
+        click_button 'delete'
+
+        expect(page).to_not have_text('pending')
       end
     end
   end
