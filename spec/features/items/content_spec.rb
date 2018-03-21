@@ -63,7 +63,7 @@ RSpec.describe Item, type: :feature do
         Merchant.create(name: 'Bryan')
         visit 'items/new'
 
-        expect(page).to have_select('Merchants', options: %w[Bill Bob Bryan])
+        expect(page).to have_select('item[merchant_id]', options: %w[Bill Bob Bryan])
       end
       it 'has a form for the new title' do
         visit '/items/new'

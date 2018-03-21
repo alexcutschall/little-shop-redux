@@ -4,7 +4,7 @@ RSpec.describe Item, type: :feature do
       it 'has correct title' do
         Merchant.create(name: 'Vendor')
         visit '/items/new'
-        select('Vendor', from: 'Merchants')
+        select('Vendor', from: 'item[merchant_id]')
         fill_in('item[title]', with: 'New Things Title')
         fill_in('item[description]', with: 'Desc')
         fill_in('item[price]', with: 1200)
