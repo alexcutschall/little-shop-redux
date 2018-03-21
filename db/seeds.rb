@@ -1,3 +1,5 @@
+ActiveRecord::Base.connection.reset_pk_sequence!(:merchants)
+
 require 'csv'
 require './app/models/invoice'
 require './app/models/merchant'
