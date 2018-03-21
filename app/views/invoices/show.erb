@@ -11,7 +11,7 @@
     <%= erb :navigation %>
       <div class="header">
           <a href='/invoices-dashboard' class="dashboard-display">Dashboard</a>
-          <h1 class ="header-title">Invoice: <%= @invoice.id %> - <%= @invoice.status.capitalize %></h1>
+          <h1 class ="header-title">Invoice ID: <%= @invoice.id %> - <%= @invoice.status.capitalize %></h1>
           <div class="invoice-alignment">
 
             <form action='/<%=@invoice.id %>/edit' method= "GET">

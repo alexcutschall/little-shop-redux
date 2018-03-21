@@ -7,11 +7,11 @@ RSpec.describe Item, type: :feature do
         expect(page).to have_content('Items')
       end
       it 'shows all the items' do
-        Item.create(title: 'Thing', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Another thing', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Something else', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Anything', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Stuff', description: 'x', price: 12, image: 'x')
+        Item.create(title: 'Thing', description: 'x', price: 12, image: 'x', merchant_id: 1)
+        Item.create(title: 'Another thing', description: 'x', price: 12, image: 'x', merchant_id: 1)
+        Item.create(title: 'Something else', description: 'x', price: 12, image: 'x', merchant_id: 1)
+        Item.create(title: 'Anything', description: 'x', price: 12, image: 'x', merchant_id: 1)
+        Item.create(title: 'Stuff', description: 'x', price: 12, image: 'x', merchant_id: 1)
         visit '/items'
 
         expect(page).to have_content('Thing')
@@ -53,38 +53,38 @@ RSpec.describe Item, type: :feature do
     end
     context 'New page' do
       it 'says new on top of page' do
-          visit '/items/new'
+        visit '/items/new'
 
-          expect(page).to have_content('Create New Item')
-        end
+        expect(page).to have_content('Create New Item')
+      end
       it 'has a dropdown menu to select from known merchants' do
-          Merchant.create(name: 'Bill')
-          Merchant.create(name: 'Bob')
-          Merchant.create(name: 'Bryan')
-          visit 'items/new'
+        Merchant.create(name: 'Bill')
+        Merchant.create(name: 'Bob')
+        Merchant.create(name: 'Bryan')
+        visit 'items/new'
 
-          expect(page).to have_select('Merchants', options: %w[Bill Bob Bryan])
-        end
+        expect(page).to have_select('Merchants', options: %w[Bill Bob Bryan])
+      end
       it 'has a form for the new title' do
-          visit '/items/new'
+        visit '/items/new'
 
-          expect(page).to have_selector("input[value='New Title Here']")
-        end
+        expect(page).to have_selector("input[value='New Title Here']")
+      end
       it 'has a form for the new description' do
-          visit '/items/new'
+        visit '/items/new'
 
-          expect(page).to have_selector("input[value='New Description Here']")
-        end
+        expect(page).to have_selector("input[value='New Description Here']")
+      end
       it 'has a form for the new price' do
-          visit '/items/new'
+        visit '/items/new'
 
-          expect(page).to have_selector("input[value='New Price Here']")
-        end
+        expect(page).to have_selector("input[value='New Price Here']")
+      end
       it 'has a form for the new image URL' do
-          visit '/items/new'
+        visit '/items/new'
 
-          expect(page).to have_selector("input[value='www.example.com/image.jpg']")
-        end
+        expect(page).to have_selector("input[value='www.example.com/image.jpg']")
+      end
     end
     context 'Edit page' do
       it 'shows edit item title on top of page' do
@@ -97,33 +97,33 @@ RSpec.describe Item, type: :feature do
     end
     context 'Dashboard' do
       it 'shows the total count of items' do
-        Item.create(title: 'Thing', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Another thing', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Something else', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Anything', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Stuff', description: 'x', price: 12, image: 'x')
+        Item.create!(title: 'Thing', description: 'x', price: 12, image: 'x', merchant_id: 1)
+        Item.create!(title: 'Another thing', description: 'x', price: 12, image: 'x', merchant_id: 1)
+        Item.create!(title: 'Something else', description: 'x', price: 12, image: 'x', merchant_id: 1)
+        Item.create!(title: 'Anything', description: 'x', price: 12, image: 'x', merchant_id: 1)
+        Item.create!(title: 'Stuff', description: 'x', price: 12, image: 'x', merchant_id: 1)
         visit '/items-dashboard'
 
         expect(page).to have_content('Total Item Count')
         expect(page).to have_content('5')
       end
       it 'shows the average price of items' do
-        Item.create(title: 'Thing', description: 'x', price: 8, image: 'x')
-        Item.create(title: 'Another thing', description: 'x', price: 9, image: 'x')
-        Item.create(title: 'Something else', description: 'x', price: 10, image: 'x')
-        Item.create(title: 'Anything', description: 'x', price: 11, image: 'x')
-        Item.create(title: 'Stuff', description: 'x', price: 12, image: 'x')
+        Item.create!(title: 'Thing', description: 'x', price: 803, image: 'x', merchant_id: 1)
+        Item.create!(title: 'Another thing', description: 'x', price: 903, image: 'x', merchant_id: 1)
+        Item.create!(title: 'Something else', description: 'x', price: 1003, image: 'x', merchant_id: 1)
+        Item.create!(title: 'Anything', description: 'x', price: 1103, image: 'x', merchant_id: 1)
+        Item.create!(title: 'Stuff', description: 'x', price: 1203, image: 'x', merchant_id: 1)
         visit '/items-dashboard'
 
         expect(page).to have_content('Avg Price Per Item')
-        expect(page).to have_content('10')
+        expect(page).to have_content('10.03')
       end
       it 'shows the newest item' do
-        Item.create(title: 'Thing', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Another thing', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Something else', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Anything', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Stuff', description: 'x', price: 12, image: 'x')
+        Item.create!(title: 'Thing', description: 'x', price: 12, image: 'x', merchant_id: 1)
+        Item.create!(title: 'Another thing', description: 'x', price: 12, image: 'x', merchant_id: 1)
+        Item.create!(title: 'Something else', description: 'x', price: 12, image: 'x', merchant_id: 1)
+        Item.create!(title: 'Anything', description: 'x', price: 12, image: 'x', merchant_id: 1)
+        Item.create!(title: 'Stuff', description: 'x', price: 12, image: 'x', merchant_id: 1)
         visit '/items-dashboard'
 
         expect(page).to have_content('Item by Age')
@@ -131,11 +131,11 @@ RSpec.describe Item, type: :feature do
         expect(page).to have_content('Stuff')
       end
       it 'shows the oldest item' do
-        Item.create(title: 'Thing', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Another thing', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Something else', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Anything', description: 'x', price: 12, image: 'x')
-        Item.create(title: 'Stuff', description: 'x', price: 12, image: 'x')
+        Item.create!(title: 'Thing', description: 'x', price: 12, image: 'x', merchant_id: 1)
+        Item.create!(title: 'Another thing', description: 'x', price: 12, image: 'x', merchant_id: 1)
+        Item.create!(title: 'Something else', description: 'x', price: 12, image: 'x', merchant_id: 1)
+        Item.create!(title: 'Anything', description: 'x', price: 12, image: 'x', merchant_id: 1)
+        Item.create!(title: 'Stuff', description: 'x', price: 12, image: 'x', merchant_id: 1)
         visit '/items-dashboard'
 
         expect(page).to have_content('Oldest')
